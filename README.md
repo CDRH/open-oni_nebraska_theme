@@ -3,6 +3,12 @@ This is the new nebraska child theme for open-oni
 
 ## Including in the Open ONI App
 
+Download the master branch:
+
+```
+git clone git@github.com:CDRH/open-oni_nebraska_theme.git themes/nebraska
+```
+
 In `onisite/settings_local.py`, add the theme.  Don't remove `themes.default`.
 
 ```
