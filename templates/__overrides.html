@@ -1,5 +1,7 @@
 {% extends "__base.html" %}
 
+{% load staticfiles %}
+
 {% comment %}
   This file sits between base and layouts (__l_zzz.html files) so you can 
   override parts of __base.html.
@@ -37,10 +39,13 @@ head_all
 
   {% block head_page_meta %}
 
-  {{ block.super }} {% comment %} block.super gets the contents of this block from parent template {% endcomment %}
+  {{ block.super }} 
+  {% comment %} block.super gets the contents of this block from parent template {% endcomment %}
 
   <!-- Adding some extra page metadata -->
   <meta name="description" content="A site for newspapers">
   <meta name="author" content="The author of this site">
+
+  <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon"/>
 
   {% endblock head_page_meta %}
