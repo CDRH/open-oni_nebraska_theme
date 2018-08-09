@@ -75,8 +75,7 @@ This calendar replaces the less accessible original calendar. You do not need to
 ### Featured Pages
 
 TODO
-- setup with specific page rotation (this will only work if those batches are loaded)
-- Nebraska specific text added to `featured.html`
+- setup with specific page rotation (this will only work if those batches are loaded), set to random (existing) pages by default
 
 UNTIL THEN
 - Copy config demo file to `onisite/plugins/featured_content/config.py`
@@ -84,7 +83,4 @@ UNTIL THEN
 ### Map
 
 TODO
-- add lat / lng to database and generate JSON OR grab existing JSON from nebnews
-
-UNTIL THEN
-- copy demo cities_list.js
+- consider adding lat / lng to titles in the database, otherwise update the existing list `static/js/cities_list.js` as needed
