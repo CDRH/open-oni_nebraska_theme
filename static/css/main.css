@@ -61,16 +61,28 @@ h1.title {
     font-size: .9em;
 }
 
+.navbar-second {
+    border: solid 3px #000;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+}
+
 /* To center the search */
 
 @media (min-width: 768px) {
 
+    .navbar-second .container {
+        text-align: center;
+    }
+    
     .navbar-center {
         display: inline-block;
         margin-bottom: -7px;
     }
 
 }
+
 
 
 
@@ -126,6 +138,10 @@ div.calendar_wrapper table.month td.multiple {
 
 .calendar_wrapper td {
     width: 2.2em;
+}
+
+.calendar_wrapper {
+    font-size: .8em
 }
 
 
@@ -415,7 +431,7 @@ a.pag-selected, span.off {
     ul.newspaper_pages li.span4 {
         height: auto;
     }
-    }
+}
 
     .highlight_words div {
     margin-top: -3px;
@@ -431,13 +447,4 @@ a.pag-selected, span.off {
     border-color: black;
     background:transparent;
     background: rgba(255, 0, 0, 0.4);
-    }
-    
-    
-    
-    
-    
-    
-    
-
-
+}
