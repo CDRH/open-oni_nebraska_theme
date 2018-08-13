@@ -2,8 +2,6 @@ from django.conf.urls import url, include
 from themes.nebraska import views
 
 urlpatterns = [
-  url(r'^$', views.about, name="nebraska_about"),
-
   # about subpages
   url('access', views.access, name="nebraska_about_access"),
   url('adding', views.adding, name="nebraska_about_adding"),

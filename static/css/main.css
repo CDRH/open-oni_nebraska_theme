@@ -40,7 +40,6 @@ body {
         font-variant: small-caps;
     }
 
-
 }
 
 @media (min-width: 992px) {
@@ -62,22 +61,10 @@ h1.title {
     font-size: .9em;
 }
 
-
-.navbar-second {
-    border: solid 3px #000;
-    border-right: none;
-    border-left: none;
-    border-top: none;
-}
-
 /* To center the search */
 
 @media (min-width: 768px) {
 
-    .navbar-second .container {
-        text-align: center;
-    }
-    
     .navbar-center {
         display: inline-block;
         margin-bottom: -7px;

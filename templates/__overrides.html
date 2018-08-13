@@ -18,34 +18,83 @@
 <!-- Page Title -->
 
 {% block head_page_title %}
-  {% if page_title %}{{page_title}} {% endif %}{% if site_title %}{{site_title}} « {% endif %}
+  {% if site_title %} {{site_title}} « {% endif %}
+  {% if page_title %} {{page_title}} {% endif %}
 {% endblock head_page_title %}
 
-<!-- Other Options -->
 
-<!-- 
 
-head_all
-  head_page_meta
-  head_page_css
-  head_page_top_js
-  head_page_metadata 
-  head_opensearch
-  head_extra (often used by other templates, so if you overwrite this it's best to use block.super first)
+<!-- adding some page level metadata -->
 
--->
-
-  <!-- adding some page level metadata -->
-
-  {% block head_page_meta %}
-
+{% block head_page_meta %}
   {{ block.super }} 
   {% comment %} block.super gets the contents of this block from parent template {% endcomment %}
-
   <!-- Adding some extra page metadata -->
-  <meta name="description" content="A site for newspapers">
-  <meta name="author" content="The author of this site">
-
+  <meta name="description" content="Nebraska Newspapers is a collaborative site developed by the University of Nebraska–Lincoln and the Nebraska State Historical Society. It presents many resources relating to the State's papers such as searchable full-text of selected newspapers published in the state before 1923 and information about historically significant newspapers. Editorials cover different social, political, and economic viewpoints from various regions of Nebraska.">
+  <meta name="author" content="University of Nebraska-Lincoln and Nebraska State Historical Society">
   <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon"/>
+{% endblock head_page_meta %}
 
-  {% endblock head_page_meta %}
+<!-- HEADER -->
+
+{% block header_title %}
+  <div class="header_title header">
+    <h1 class="title"><span class="nebraska">Nebraska</span> <span class="newspapers">Newspapers</span></h1>
+    {% comment %} not using {{ site_title }} because I need the spans {% endcomment %}
+  </div>
+{% endblock header_title %}
+
+<!-- NAVIGATION -->
+
+{# block navbar #}
+  {# include "includes/base_navbar.html" #}
+{# endblock navbar #}
+
+{% block navbar_pos2 %}
+  <li><a href="{% url 'map_home' %}">City</a></li>
+{% endblock navbar_pos2 %}
+
+{% block navbar_pos3 %}
+  {% comment %} we do not need API in the nav {% endcomment %}
+{% endblock navbar_pos3 %}
+
+{% block navbar_pos4 %}
+  <li><a href="{% url 'calendar_all_issues_calendar' %}">Date</a></li>
+{% endblock navbar_pos4 %}
+
+{% block navbar_pos5 %}
+  <li><a href="{% url 'nebraska_publishing' %}">Publishing History</a></li>
+  <li><a href="{% url 'openoni_help' %}">Help</a></li>
+  <li><a href="{% url 'openoni_about' %}">About</a></li>
+{% endblock navbar_pos5 %}
+
+<!-- FOOTER -->
+
+{% block footer %}
+  <div class="footer">
+    <div class="container">
+      <ul>
+        <li><a href="{% url 'openoni_home' %}">Home</a></li>
+        <li><a href="{% url 'openoni_newspapers' %}">Newspapers</a></li>
+        <li><a href="{% url 'map_home' %}">City</a></li>
+        <li><a href="{% url 'calendar_all_issues_calendar' %}">Date</a></li>
+
+        <li><a href="{% url 'nebraska_publishing' %}">Publishing History</a></li>
+        <li><a href="{% url 'openoni_help' %}">Help</a></li>
+        <li><a href="{% url 'openoni_about' %}">About</a></li>
+
+        <li><a href="/search/advanced/">Advanced Search</a></li>
+      </ul>
+
+      <div class="foot_logos">
+        <a href="http://unl.edu" class="unl"><img src="/media/images/unl.png"/></a>
+        <a href="http://www.neh.gov/" class="neh"><img src="/media/images/logo_NEH.png"/></a>
+        <a href="http://www.nebraskahistory.org/index.shtml" class="nshs"><img src="/media/images/logo_nshs.png"/></a>
+      </div>
+    </div>
+  </div>
+{% endblock footer %}
+
+<!-- HOME PAGE (FEATURED CONTENT) TEXT -->
+
+<!-- Please refer to onisite/plugins/featured_content/templates/featured.html for cusotmization -->
