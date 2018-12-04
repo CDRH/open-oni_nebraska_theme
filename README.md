@@ -70,9 +70,13 @@ We will be adding a one-stop command that will set up the customizations for eac
 
 ### Calendar
 
+[Plugin Calendar Repo](https://github.com/open-oni/plugin_calendar)
+
 This calendar replaces the less accessible original calendar. You do not need to customize this plugin.
 
 ### Featured Pages
+
+[Featured Pages Repo](https://github.com/open-oni/plugin_featured_content)
 
 TODO
 - setup with specific page rotation (this will only work if those batches are loaded), set to random (existing) pages by default
@@ -81,6 +85,8 @@ UNTIL THEN
 - Copy config demo file to `onisite/plugins/featured_content/config.py`
 
 ### Map
+
+[Plugin Map Repo](https://github.com/open-oni/plugin_map)
 
 TODO
 - consider adding lat / lng to titles in the database, otherwise update the existing list `static/js/cities_list.js` as needed
