@@ -46,9 +46,36 @@
 
 <!-- NAVIGATION -->
 
-{# block navbar #}
-  {# include "includes/base_navbar.html" #}
-{# endblock navbar #}
+{% block navbar_classes %}navbar-default header_navbar{% endblock navbar_classes %}
+
+{% block navbar %}
+  {{ block.super }}
+
+  <nav class="navbar navbar-default navbar-second">
+    <div class="container">
+      <div class="navbar-center">
+        {% comment %}  Brand and toggle get grouped for better mobile display {% endcomment %} 
+          <form class="navbar-form navbar-left"  action="{% url 'openoni_search_pages_results' %}" method="get">
+            <div class="form-group">
+              {{ city_form.city }}
+              <input type="hidden" name="rows" id="rows" alt="rows" value="20" />
+              <input type="hidden" name="searchType" alt="searchType" value="basic" />
+              <input class="form-control" type="text" name="proxtext" placeholder="search words">
+            </div><!-- /form-group -->
+
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"><span class="search_text">Search</span></span>
+            </button>
+          </form>
+            
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/search/advanced/">Advanced Search</a></li>
+          </ul>
+        </div>
+    </div><!-- /.container -->
+  </nav>
+
+{% endblock navbar %}
 
 {% block navbar_pos2 %}
   <li><a href="{% url 'map_home' %}">City</a></li>
@@ -63,10 +90,20 @@
 {% endblock navbar_pos4 %}
 
 {% block navbar_pos5 %}
-  <li><a href="{% url 'nebraska_publishing' %}">Publishing History</a></li>
-  <li><a href="{% url 'openoni_help' %}">Help</a></li>
-  <li><a href="{% url 'openoni_about' %}">About</a></li>
+  {% comment %} moved help to new list, below {% endcomment %}
 {% endblock navbar_pos5 %}
+
+{% block navbar_advancedsearch %}
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'nebraska_publishing' %}">Publishing History</a></li>
+    <li><a href="{% url 'openoni_help' %}">Help</a></li>
+    <li><a href="{% url 'openoni_about' %}">About</a></li>
+  </ul>
+{% endblock navbar_advancedsearch %}
+
+{% block navbar_search %}
+  {% comment %} Moved search to new list in block navbar above {% endcomment %}
+{% endblock navbar_search %}
 
 <!-- FOOTER -->
 
@@ -87,9 +124,9 @@
       </ul>
 
       <div class="foot_logos">
-        <a href="http://unl.edu" class="unl"><img src="/media/images/unl.png"/></a>
-        <a href="http://www.neh.gov/" class="neh"><img src="/media/images/logo_NEH.png"/></a>
-        <a href="http://www.nebraskahistory.org/index.shtml" class="nshs"><img src="/media/images/logo_nshs.png"/></a>
+        <a href="http://unl.edu" class="unl"><img src="{% static 'images/unl.png' %}"/></a>
+        <a href="http://www.neh.gov/" class="neh"><img src="{% static 'images/logo_NEH.png' %}"/></a>
+        <a href="http://www.nebraskahistory.org/index.shtml" class="nshs"><img src="{% static 'images/logo_nshs.png' %}"/></a>
       </div>
     </div>
   </div>
