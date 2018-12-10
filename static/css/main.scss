@@ -11,18 +11,21 @@ $gray: #cccccc;
 $gray-shade1: #dddddd;
 $highlight: #ff0000;
 
+// -------------------
+// Header / Title
+// -------------------
 
 body {
   background: $newsprint url(../images/full_backdrop.png) no-repeat center -170px;
 }
 
-// Header / Title
-
 .header {
   padding: 1.5em 0;
 
-  h1 {
+  h1.title {
     font-family: 'Oranienbaum', serif;
+    font-size: 3em; 
+    font-variant: small-caps;
     margin: 0;
     padding: .2em;
     text-align: center;
@@ -30,31 +33,43 @@ body {
 }
 
 @media (min-width: 768px) {
-
-  h1 {
-    .nebraska {
-      margin-left: .9em;
-    }
-    .newspapers {
-      padding-left: 1.6em;
-    }
+  .header {
+    h1.title {
+      font-size: 4em; 
+    } 
   }
-
-  h1.title {
-    font-size: 4em;
-    font-variant: small-caps;
-    font-weight: 700;
-    line-height: .95em;
-  }
-}
+} // end 753px
 
 @media (min-width: 992px) {
-  h1.title {
-    font-size: 6em;
+  .header {
+    h1.title {
+      font-size: 5em; 
+      .newspapers {
+        padding-left: 1.6em;
+      }
+    } 
   }
-}
 
+  body {
+    background: $newsprint url(../images/full_backdrop.png) no-repeat calc(50% - 2.2em) -170px;
+  }
+} // end 992px
+
+@media (min-width: 1200px) {
+  .header {
+    h1.title {
+      font-size: 6em; 
+    } 
+  }
+  
+  body {
+    background: $newsprint url(../images/full_backdrop.png) no-repeat calc(50% - 3em) -170px;
+  }
+} // end 1200px
+
+// -------------------
 // Navigation
+// -------------------
 
 .navbar {
   background-color: rgba($white, 0.7);
@@ -64,7 +79,8 @@ body {
   font-family: 'Oranienbaum';
   font-size: 1.2em;
   margin: 0;
-    a {
+
+  a {
     text-decoration: none;
   }
 }
@@ -94,7 +110,9 @@ body {
   }
 }
 
-/* calendar */
+// -------------------
+/* Calendar */
+// -------------------
 
 .year-calendar {
   font-size: .9em;
@@ -152,13 +170,17 @@ body {
   background-color: $newsprint-shade3;
 }
 
+// -------------------
 // Newspapers - All Titles
+// -------------------
 
 table.tablesorter tbody tr.odd td {
   background-color: $white;
 }
 
+// -------------------
 // City
+// -------------------
 
 .city_list h3 {
   background-color: $maroon-shade1;
@@ -173,7 +195,9 @@ table.tablesorter tbody tr.odd td {
   margin: 10px 0;
 }
 
+// -------------------
 // Footer
+// -------------------
 
 .footer {
   background-color: $newsprint-tint1;
@@ -208,7 +232,9 @@ table.tablesorter tbody tr.odd td {
   }
 }
 
+// -------------------
 /* Advanced Search */
+// -------------------
 
 .advanced_search_form {
   padding: 0 0 40px 0;
@@ -219,7 +245,9 @@ table.tablesorter tbody tr.odd td {
   }
 }
 
+// -------------------
 /* Page View */
+// -------------------
 
 #item-ctrl {
   background: $newsprint-shade1;
@@ -266,7 +294,9 @@ table.tablesorter tbody tr.odd td {
   padding: 8px 0 2px 180px  !important;
 }
 
+// -------------------
 /* Pages list/Search Results */
+// -------------------
 
 .search_results {
   margin: 10px 0 30px 0;
@@ -328,7 +358,9 @@ a.pag-selected, span.off {
   margin-top: 10px;
 }
 
+// -------------------
 /* Home Page Featured Content */
+// -------------------
 
 .featured_content {
   margin: 0;
@@ -372,8 +404,9 @@ a.pag-selected, span.off {
   }
 }
 
-
+// -------------------
 /* Help */
+// -------------------
 
 .help_images {
   border: solid 8px $white;
@@ -381,7 +414,9 @@ a.pag-selected, span.off {
   margin: 10px auto 20px auto;
 }
 
+// -------------------
  /*LOC Styles*/ 
+ // -------------------
 
 @media (max-width: 979px) {
   body {
