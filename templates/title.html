@@ -223,13 +223,13 @@
         {% endif %}
 
         {% if first_essay %}
-      
           <div class="span6">
             <h4>{{first_essay.title}}</h4>
             <p>{{first_essay.html|safe}}</p>
             <p><em>Provided by: <a href="{% url 'openoni_awardee' first_essay.creator.org_code %}">{{ first_essay.creator }}</a></em></p>
           </div>
-          
+        {% elif essay_template|template_exists %}
+            {% include essay_template %}
         {% endif %}
      </div><!-- /col-md-6 -->
     </div><!-- /row -->
