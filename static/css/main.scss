@@ -11,11 +11,22 @@ $gray: #cccccc;
 $gray-shade1: #dddddd;
 $highlight: #ff0000;
 
+.main_content {
+  background-color: $newsprint;
+  padding-bottom: 3em;
+}
+
+.site_header {
+
+}
+
+body {background-color: $newsprint-tint1;}
+
 // -------------------
 // Header / Title
 // -------------------
 
-body {
+.site_header {
   background: $newsprint url(../images/full_backdrop.png) no-repeat center -170px;
 }
 
@@ -50,7 +61,7 @@ body {
     } 
   }
 
-  body {
+  .site_header {
     background: $newsprint url(../images/full_backdrop.png) no-repeat calc(50% - 2.2em) -170px;
   }
 } // end 992px
@@ -62,7 +73,7 @@ body {
     } 
   }
   
-  body {
+  .site_header {
     background: $newsprint url(../images/full_backdrop.png) no-repeat calc(50% - 3em) -170px;
   }
 } // end 1200px
@@ -200,9 +211,9 @@ table.tablesorter tbody tr.odd td {
 // -------------------
 
 .footer {
-  background-color: $newsprint-tint1;
+  // background-color: $newsprint-tint1;
   border-top: double 3px $black;
-  margin-top: 3em;
+  margin-top: 0;
   padding: 20px 0 50px 0;
   width: 100%;
 
