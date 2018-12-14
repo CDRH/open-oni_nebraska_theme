@@ -1,0 +1,1 @@
+{% include "essays/shared/daily_nebraskan.html" %}
