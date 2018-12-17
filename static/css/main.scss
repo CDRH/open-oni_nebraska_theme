@@ -150,7 +150,7 @@ body {background-color: $newsprint-tint1;}
     background-color: $newsprint-shade2;
   }
 
-  table.month td.multiple {
+  .month td.multiple {
     background-color: $newsprint-shade3;
   }
 
@@ -185,7 +185,7 @@ body {background-color: $newsprint-tint1;}
 // Newspapers - All Titles
 // -------------------
 
-table.tablesorter tbody tr.odd td {
+.tablesorter tbody tr.odd td {
   background-color: $white;
 }
 
