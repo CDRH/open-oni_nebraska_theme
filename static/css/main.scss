@@ -402,7 +402,7 @@ a.pag-selected, span.off {
       }
     }
 
-    li:nth-child(2n+1) {
+    &:nth-child(2n+1) {
       clear: left;
     }
   }
