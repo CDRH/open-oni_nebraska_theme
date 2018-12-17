@@ -84,9 +84,9 @@ body {background-color: $newsprint-tint1;}
 
 .navbar {
   background-color: rgba($white, 0.7);
+  border: double $black 3px;
   border-left: none;
   border-right: none;
-  border: double $black 3px;
   font-family: 'Oranienbaum';
   font-size: 1.2em;
   margin: 0;
@@ -163,7 +163,7 @@ body {background-color: $newsprint-tint1;}
 .calendar_month {
   background-color: $white;
   display: inline-block;
-  margin: 0 10px 0 0px;
+  margin: 0 10px 0 0;
   text-align: center;
   vertical-align: top;
 }
@@ -384,6 +384,27 @@ a.pag-selected, span.off {
     width: 50%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+
+    a {
+      background-color: $white;
+      display: inline-block;
+      font-size: .9em;
+      line-height: 1.2em;
+      margin: 10px 10px 10px 10px;
+      max-width: 100%;
+      padding: .5em;
+      text-decoration: none;
+
+      span {
+        display: block;
+        padding: .1em .5em;
+        text-align: center;
+      }
+    }
+
+    li:nth-child(2n+1) {
+      clear: left;
+    }
   }
 
   img {
@@ -393,27 +414,7 @@ a.pag-selected, span.off {
     padding: 0;
   }
 
-  li a {
-    background-color: $white;
-    display: inline-block;
-    font-size: .9em;
-    line-height: 1.2em;
-    margin: 10px 10px 10px 10px;
-    max-width: 100%;
-    padding: .5em;
-    text-decoration: none;
 
-    span {
-      display: block;
-      padding: .1em .5em;
-      text-align: center;
-    }
-  } 
-
-  li:nth-child(2n+1) {
-    clear: left;
-  }
-}
 
 // -------------------
 /* Help */
@@ -431,11 +432,11 @@ a.pag-selected, span.off {
 
 @media (max-width: 979px) {
   body {
-    padding-top: 0px;
+    padding-top: 0;
   }
 
   .navbar-fixed-top {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 }
 
