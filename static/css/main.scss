@@ -260,45 +260,6 @@ body {background-color: $newsprint-tint1;}
 /* Page View */
 // -------------------
 
-#item-ctrl {
-  background: $newsprint-shade1;
-  border: 1px solid $gray-shade1;
-
-  .c-images,
-  .c-pages,
-  .c-issues,
-  .c-view,
-  .c-download,
-  .c-clip {
-    height: 17px;
-    padding: 0 1em 0 1em;
-  }
-
-  .c-pages {
-    border-right: 2px solid $newsprint-shade3;
-  }
-
-  .c-view {
-    border-left: 2px solid $newsprint-shade3;
-
-    span {
-      color: $newsprint-shade3;
-    }
-  }
-
-  .c-download,
-  .c-pages a.all,
-  .c-issues a.all {
-    margin-left: 1em;
-  }
-
-  .c-pages strong,
-  .c-issues strong {
-    margin-left: .5em;
-    margin-right: .5em;
-  }
-}
-
 #item-ctrl > div {
   font-size: .9em;
   margin: 0 !important;
