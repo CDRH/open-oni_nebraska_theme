@@ -1,0 +1,20 @@
+<!-- http://BASE_URL/newspapers/ -->
+
+{% extends "newspapers.html" %}
+{% load humanize %}
+
+
+{% block head_page_title %}
+    All Digitized Newspapers
+{% endblock head_page_title %}
+
+{% block sub_page_head %}
+<h2>All Digitized Newspapers</h2>
+{% endblock sub_page_head %}
+
+{% block newspapers_table_intro %}
+<div class="results_nav">
+    <p>Pages Available: {{ total_page_count|intcomma }}</p>
+    <p>{{titles.count}} {% if titles.count == 1 %}newspaper is{% else %}newspapers are{% endif %} available for viewing on this site. To search U.S. Newspapers, go to Chronicling America's <a href="http://chroniclingamerica.loc.gov/search/titles/">U.S. Newspaper Directory, 1690-Present</a>.</p>
+</div>
+{% endblock newspapers_table_intro %}
