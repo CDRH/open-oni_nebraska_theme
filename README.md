@@ -90,3 +90,11 @@ UNTIL THEN
 
 TODO
 - consider adding lat / lng to titles in the database, otherwise update the existing list `static/js/cities_list.js` as needed
+
+## Load Plattsmouth Papers
+
+Until such time as the LoC updates their Marc records from OCLC, you need to include this line in your `settings_local.py` file before you can load any of the Plattsmouth batches.  All other batches will not load while this line is in your settings, so remember to comment it or remove it after loading Plattsmouth:
+
+```
+MARC_RETRIEVAL_URLFORMAT = "https://raw.githubusercontent.com/CDRH/open-oni_nebraska_theme/master/marc/%s/marc.xml"
+```
