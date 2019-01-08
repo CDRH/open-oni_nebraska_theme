@@ -25,7 +25,7 @@
         {% if title.first_issue.first_page_with_image.jp2_filename and title.first_issue.first_page_with_image.sequence %}
 
           <a href="{% url 'openoni_page' title.lccn title.first_issue.date_issued title.first_issue.edition title.first_issue.first_page_with_image.sequence %}">
-            <img class="thumbnail" src="{% thumb_image_url title.first_issue.first_page_with_image %}" alt="" />
+            <img class="thumbnail" src="{% custom_size_image_url title.first_issue.first_page_with_image 360 %}" alt="First page of first issue of {{ title.display_name }}" />
           </a>
         {% else %}
             Missing Page: {{explanation}}
