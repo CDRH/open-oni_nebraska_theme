@@ -16,10 +16,6 @@ $highlight: #ff0000;
   padding-bottom: 3em;
 }
 
-.site_header {
-
-}
-
 body {background-color: $newsprint-tint1;}
 
 // -------------------
@@ -37,10 +33,27 @@ body {background-color: $newsprint-tint1;}
     font-family: 'Oranienbaum', serif;
     font-size: 3em; 
     font-variant: small-caps;
+    font-weight: 800;
     margin: 0;
     padding: .2em;
     text-align: center;
   } 
+}
+
+a {
+  text-decoration: underline;
+}
+
+.nav a, .btn a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline !important; //Spent a while trying to figure this out, using this for now
+}
+
+input[type="text"], textarea, select { 
+  background-color: $white; 
 }
 
 @media (min-width: 768px) {
@@ -139,18 +152,18 @@ body {background-color: $newsprint-tint1;}
     background-color: $white;
     margin: 0;
     padding: 0;
+
+    td {
+      padding: 4px;
+      width: 2.2em;
+    }
+
+    .single {
+      background-color: $newsprint-shade2;
+    }
   }
 
-  .table td {
-    padding: 4px;
-    width: 2.2em;
-  }
-
-  .table td.single {
-    background-color: $newsprint-shade2;
-  }
-
-  .month td.multiple {
+  .month .multiple {
     background-color: $newsprint-shade3;
   }
 
