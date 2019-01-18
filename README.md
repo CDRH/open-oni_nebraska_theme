@@ -18,7 +18,7 @@ The Nebraska theme depends upon several plugins:
 - [Featured Content](https://github.com/open-oni/plugin_featured_content)
 - [Map](https://github.com/open-oni/plugin_map)
 
-You will need to clone and configure these as well or else the theme's navigation will not work as intended.  Follow instructions in those repositories for customizing the contents of the map and the featured content.
+You will need to clone and configure these as well or else the theme's navigation will not work as intended.  Follow instructions in those repositories for customizing the contents of the map and the featured content using the files in this theme's `conf/plugins` directory.
 
 ```
 git clone git@github.com:open-oni/plugin_calendar.git onisite/plugins/calendar
@@ -26,7 +26,14 @@ git clone git@github.com:open-oni/plugin_featured_content.git onisite/plugins/fe
 git clone git@github.com:open-oni/plugin_map.git onisite/plugins/map
 ```
 
-In `onisite/settings_local.py`, add the theme and plugins.  Don't remove `themes.default`.  Also configure the application's title settings.
+Copy in Nebraska configuration for the calendar plugin (these may differ if the plugin has been changed and our theme has not yet been updated):
+
+```
+# calendar
+cp themes/nebraska/conf/plugins/calendar/config.py onisite/plugins/calendar/config.py
+```
+
+In `onisite/settings_local.py`, add the theme and plugins.  Also configure the application's title settings.
 
 ```
 INSTALLED_APPS = (
@@ -38,13 +45,16 @@ INSTALLED_APPS = (
     'onisite.plugins.map',
 
     'themes.nebraska',
-    'themes.default',
+    # 'themes.default',
     'core',
 )
 
 SITE_TITLE = "Nebraska Newspapers"
 PROJECT_NAME = "Nebraska Newspapers"
 ```
+
+TODO document the other important settings in `settings_local.py` exist for dev / production servers, not just for local development with docker!
+
 
 Also, in `onisite/urls.py`, add the Nebraska about URLs:
 
@@ -72,14 +82,16 @@ We will be adding a one-stop command that will set up the customizations for eac
 
 [Plugin Calendar Repo](https://github.com/open-oni/plugin_calendar)
 
-This calendar replaces the less accessible original calendar. You do not need to customize this plugin.
+This calendar replaces the less accessible original calendar. You will need to copy the Nebraska theme's config file.
 
 ### Featured Pages
 
 [Featured Pages Repo](https://github.com/open-oni/plugin_featured_content)
 
+You do not need to copy the `featured_example.html`, as the `featured.html` file is already at `themes/nebraska/templates/featured.html`.
+
 TODO
-- setup with specific page rotation (this will only work if those batches are loaded), set to random (existing) pages by default
+- select specific featured pages from our currently loaded options, then add that config file and copying process to this repository
 
 UNTIL THEN
 - Copy config demo file to `onisite/plugins/featured_content/config.py`
@@ -88,8 +100,10 @@ UNTIL THEN
 
 [Plugin Map Repo](https://github.com/open-oni/plugin_map)
 
+The JS file containing the map locations does not need to be moved into the plugin. It lives in `themes/nebraska/static/js/cities_list.js`.  You will need to update it when any new titles are added.
+
 TODO
-- consider adding lat / lng to titles in the database, otherwise update the existing list `static/js/cities_list.js` as needed
+- consider adding lat / lng to titles in the database, otherwise update the existing list `themes/nebraska/static/js/cities_list.js` as needed
 
 ## Load Plattsmouth Papers
 
