@@ -1,5 +1,7 @@
 {% extends "_featured_base.html" %}
 
+{% load image_urls %}
+
 {% block featured_description %}
   <h2>Welcome to the {{ project_name }} site</h2>
 
@@ -9,3 +11,33 @@
 
   <p>We are indebted to the National Endowment for the Humanities and the Library of Congress for the pioneering work of the United States Newspaper Program and the National Digital Newspaper Program. The national projects have made the state projects possible.</p>
 {% endblock featured_description %}
+
+{% block featured_pages %}
+        {% if this_day_title %}
+          <h3>On This Day</h3>
+        {% else %}
+          <h3>Featured Content</h3>
+        {% endif %}
+        <ul class="featured_content">
+          {% if pages %}
+            {% for page in pages %}
+              {% if page.page_obj %}
+                <li>
+                  <a href="{% url 'openoni_page' page.lccn page.date page.edition page.sequence %}">
+                    {% if page.page_obj.relative_image_path %}
+                      <img src="{% custom_size_image_url page.page_obj 500 %}" alt="" />
+                    {% endif %}
+                    <p class="featured_title">{{ page.name }}</p>
+                    <p class="featured_date">{{ page.date }}</p>
+                    <p class="featured_caption">{{ page.caption }}</p>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% block featured_no_content %}
+              <p>No content available</p>
+            {% endblock featured_no_content %}
+          {% endif %}
+        </ul>
+      {% endblock featured_pages %}
