@@ -289,6 +289,18 @@ input[type="text"], textarea, select {
   font-size: .9em;
 }
 
+// wrap preformatted text and make a tad smaller on ocr page
+.ocr_text pre {
+  font-size: .9em;
+  white-space: pre-wrap;       // css-3 
+  word-wrap: break-word;       // Internet Explorer 5.5+
+}
+
+// Make font slightly smaller so nav fits on one line
+#imageViewer_nav {
+  font-size: .9em;
+}
+
 // -------------------
 /* Pages list/Search Results */
 // -------------------
