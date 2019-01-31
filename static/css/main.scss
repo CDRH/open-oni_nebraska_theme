@@ -320,6 +320,10 @@ input[type="text"], textarea, select {
     font-size: .9em;
     line-height: 1.1em !important;
   }
+  
+  .thumbnail {
+    font-size: .9em;
+  }
 }
 
 .search_results_ctrl {
@@ -474,17 +478,7 @@ ul.newspaper_pages li.span4 {
 }
 
 .highlight_words div {
-  background: rgba($highlight, 0.4);
-  background: transparent;
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
-  margin-bottom: 3px;
-  margin-left: -1px;
-  margin-right: 1px;
-  margin-top: -3px;
-  padding-bottom: 3px;
-  padding-left: 1px;
-  padding-right: 1px;
-  padding-top: 3px;
+  border: 1px solid $black;
+  margin: -3px 1px 3px -1px;
+  padding: 3px 1px 3px 1px;
 }
