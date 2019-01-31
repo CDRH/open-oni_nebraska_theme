@@ -27,7 +27,7 @@ body {background-color: $newsprint-tint1;}
 }
 
 .header {
-  padding: 1.5em 0;
+  padding: 1.2em 0;
 
   h1.title {
     font-family: 'Oranienbaum', serif;
@@ -140,12 +140,19 @@ input[type="text"], textarea, select {
 
 .year-calendar {
   font-size: .9em;
+  
+  .month caption {
+    background-color: $maroon;
+    margin: 1em 0 0 0;
+  }
 
   h3 {
-    background-color: $newsprint;
+    background-color: transparent;
+    color: $white;
     font-size: 1.3em;
-    margin-bottom: 0;
-    padding: .3em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
   }
 
   .table {
@@ -269,11 +276,28 @@ input[type="text"], textarea, select {
   }
 }
 
+// keep from and to on same line
+#id_date_from, #id_date_to {
+  width: 7em;
+}
+
 // -------------------
 /* Page View */
 // -------------------
 
 #item-ctrl > div {
+  font-size: .9em;
+}
+
+// wrap preformatted text and make a tad smaller on ocr page
+.ocr_text pre {
+  font-size: .9em;
+  white-space: pre-wrap;       // css-3 
+  word-wrap: break-word;       // Internet Explorer 5.5+
+}
+
+// Make font slightly smaller so nav fits on one line
+#imageViewer_nav {
   font-size: .9em;
 }
 
@@ -295,6 +319,10 @@ input[type="text"], textarea, select {
   .search_results .highlite {
     font-size: .9em;
     line-height: 1.1em !important;
+  }
+  
+  .thumbnail {
+    font-size: .9em;
   }
 }
 
@@ -387,6 +415,14 @@ a.pag-selected, span.off {
   }
 }
 
+.featured_title,
+.featured_date,
+.featured_caption {
+  line-height: 1;
+  margin: .3em 0 0 0;
+  text-align: center;
+}
+
 // -------------------
 /* Help */
 // -------------------
@@ -442,17 +478,7 @@ ul.newspaper_pages li.span4 {
 }
 
 .highlight_words div {
-  background: rgba($highlight, 0.4);
-  background: transparent;
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
-  margin-bottom: 3px;
-  margin-left: -1px;
-  margin-right: 1px;
-  margin-top: -3px;
-  padding-bottom: 3px;
-  padding-left: 1px;
-  padding-right: 1px;
-  padding-top: 3px;
+  border: 1px solid $black;
+  margin: -3px 1px 3px -1px;
+  padding: 3px 1px 3px 1px;
 }
