@@ -13,31 +13,31 @@
 {% endblock featured_description %}
 
 {% block featured_pages %}
-        {% if this_day_title %}
-          <h3>On This Day</h3>
-        {% else %}
-          <h3>Featured Content</h3>
-        {% endif %}
-        <ul class="featured_content">
-          {% if pages %}
-            {% for page in pages %}
-              {% if page.page_obj %}
-                <li>
-                  <a href="{% url 'openoni_page' page.lccn page.date page.edition page.sequence %}">
-                    {% if page.page_obj.relative_image_path %}
-                      <img src="{% custom_size_image_url page.page_obj 500 %}" alt="" />
-                    {% endif %}
-                    <p class="featured_title">{{ page.name }}</p>
-                    <p class="featured_date">{{ page.date }}</p>
-                    <p class="featured_caption">{{ page.caption }}</p>
-                  </a>
-                </li>
+  {% if this_day_title %}
+    <h3>On This Day</h3>
+  {% else %}
+    <h3>Featured Content</h3>
+  {% endif %}
+  <ul class="featured_content">
+    {% if pages %}
+      {% for page in pages %}
+        {% if page.page_obj %}
+          <li>
+            <a href="{% url 'openoni_page' page.lccn page.date page.edition page.sequence %}">
+              {% if page.page_obj.relative_image_path %}
+                <img src="{% custom_size_image_url page.page_obj 500 %}" alt="" />
               {% endif %}
-            {% endfor %}
-          {% else %}
-            {% block featured_no_content %}
-              <p>No content available</p>
-            {% endblock featured_no_content %}
-          {% endif %}
-        </ul>
-      {% endblock featured_pages %}
+              <p class="featured_title">{{ page.name }}</p>
+              <p class="featured_date">{{ page.date }}</p>
+              <p class="featured_caption">{{ page.caption }}</p>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      {% block featured_no_content %}
+        <p>No content available</p>
+      {% endblock featured_no_content %}
+    {% endif %}
+  </ul>
+{% endblock featured_pages %}
