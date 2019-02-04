@@ -2,15 +2,18 @@
 
 {% extends "newspapers.html" %}
 {% load humanize %}
+{% load static from staticfiles %}
 
 
 {% block head_page_title %}
     All Digitized Newspapers
 {% endblock head_page_title %}
 
+
 {% block sub_page_head %}
 <h2>All Digitized Newspapers</h2>
 {% endblock sub_page_head %}
+
 
 {% block newspapers_table_intro %}
 <div class="results_nav">
@@ -19,3 +22,51 @@
     </p>
 </div>
 {% endblock newspapers_table_intro %}
+
+
+{% block newspapers_table %}
+<table id="newspapers" class="table table-striped table-hover browse_collect tablesorter" cellspacing="0" summary="">
+    <thead>
+    <tr>
+        <th scope="col" class="left_no_border">City</th>
+        <th scope="col">Newspaper</th>
+        <th scope="col">Browse Issues</th>
+        <th scope="col">No. of Issues</th>
+        <th scope="col">Earliest Issue</th>
+        <th scope="col">Latest Issue</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for title in sorted_titles %}
+        <tr>
+            <td class="first left_no_border" scope="row">
+              {% for place in title.places.all %}
+                {{ place.city }}<br/>
+              {% endfor %}
+            </td>
+            <td>
+                <a href="{% url 'openoni_title' title.lccn %}">
+                  {{title.display_name}}
+                </a>
+            </td>
+            <td>
+              <a href="{% url 'openoni_issues_title' title.lccn %}" shape="rect">
+                <img src="{% static 'images/calendar_icon.gif' %}" alt="calendar"/>
+              </a>
+            </td>
+            <td>{{title.issues.count}}</td>
+            <td>
+              <a href="{% url 'openoni_issue_pages' title.lccn title.first 1 %}">
+                {{title.first|date:'Y-m-d'}}
+              </a>
+            </td>
+            <td class="last">
+              <a href="{% url 'openoni_issue_pages' title.lccn title.last 1 %}">
+                {{title.last|date:'Y-m-d'}}
+              </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock newspapers_table %}
