@@ -135,6 +135,23 @@ input[type="text"], textarea, select {
 }
 
 // -------------------
+/* About */
+// -------------------
+
+.wdn-responsive-embed {
+  margin: 1em 0 2em 0;
+  text-align: center;
+
+  iframe {
+    height: 358px;
+    max-width: 100%;
+    width: 630px;
+  }
+}
+
+.wdn-responsive-embed 
+
+// -------------------
 /* Calendar */
 // -------------------
 
