@@ -1,0 +1,36 @@
+{% extends 'custom/__about_base.html' %}
+
+{% load static from staticfiles %}
+
+{% block sharetool_container_left %}{% endblock %}
+
+{% block main_content %}
+  {{ block.super }}
+
+  <div id="content_wrapper" class="about">
+    
+    <!-- CONTACT -->
+
+    <h3>Contact</h3>
+
+    <p>For more information about the Nebraska Digital Newspaper Project, contact Katherine Walter, project director for the NDNP in Nebraska.  She can be reached at <a href="mailto:kwalter1@unl.edu">kwalter1@unl.edu</a> or (402) 472-3939.</p>
+
+    <p>For technical or other issues, please contact <a href="mailto:cdrh@unl.edu">cdrh@unl.edu</a>.</p>
+
+    <h4>Location & Hours</h4>
+
+    <p>
+    Center for Digital Research in the Humanities<br/>
+    University of Nebraska–Lincoln<br/>
+    319 Love Library<br/>
+    P.O. Box 884100<br/>
+    Lincoln NE, 68588-4100<br/>
+    (402) 472-4547<br/>
+    </p>
+
+    <p>Mon-Fri, 8:00 a.m. to 5:00 p.m.</p>
+
+    <p><em>The CDRH is closed during regular University and Library holidays and shutdowns.</em></p>
+
+  </div>
+{% endblock %}    

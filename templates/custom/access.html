@@ -1,0 +1,30 @@
+{% extends 'custom/__about_base.html' %}
+
+{% load static from staticfiles %}
+
+{% block sharetool_container_left %}{% endblock %}
+
+{% block main_content %}
+  {{ block.super }}
+
+  <div id="content_wrapper" class="about">
+
+    <h3>Access</h3>
+
+    <h4>UNL Libraries and History Nebraska Catalogs</h4>
+
+    <p>Nebraska newspapers can be found using the <a href="https://history.nebraska.gov/collections/nebraska-newspaper-inventory">Nebraska Newspaper Finding Aids</a> and <a href="http://nhs.mlasolutions.com/oasis/catalog/(S(l2dkcz55snshbczbnmlihy45))/Default.aspx?installation=NebraskaHistorical">catalog</a> available at History Nebraska in addition to the <a href="https://libraries.unl.edu/">UNL Libraries catalog</a>.</p>
+
+    <p>For help searching the holdings listed in the UNL catalog, contact the AskUs staff at the UNL Libraries or search the catalog for “United States Nebraska [name of county] [name of city].”</p>
+
+    <h4>Nebraska Press Association</h4>
+
+    <p>The <a href="https://www.nebpress.com/">Nebraska Press Association</a> web site contains listings of all Nebraska newspapers, available alphabetically by publication name, alphabetically by county name, geographically, or by circulation.</p>
+
+    <h4>Library of Congress</h4>
+
+    <p>The Library of Congress maintains a list of <a href="https://www.loc.gov/rr/news/oltitles.html">Newspaper Archives/Indexes/Morgues</a>.</p>
+    
+  </div>
+
+{% endblock %}   

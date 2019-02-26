@@ -1,6 +1,6 @@
 <!-- http://BASE_URI/about/ -->
 
-{% extends '__l_main.html' %}
+{% extends "custom/__about_base.html" %}
 
 {% load static from staticfiles %}
 
@@ -12,9 +12,8 @@
 
   {{ block.super }}
 
-
   <div id="std_box">
-
+    
     <!-- PRIMARY ABOUT CONTENT -->
     <h3>Overview and Team</h3>
 
@@ -82,98 +81,7 @@
       <li>John R. Wunder, Professor, History and College of Journalism & Mass Communication, University of Nebraska-Lincoln</li>
     </ul>
 
-    <!-- PROJECT HISTORY -->
+  </div><!-- end id:std_box -->
 
-    <h3>Project History</h3>
-
-    <p>The Nebraska Newspaper Project (NNP) was a cooperative project between the <a href="https://libraries.unl.edu/">University Libraries</a> at the <a href="https://www.unl.edu/">University of Nebraska-Lincoln</a> (UNL) and <a href="https://history.nebraska.gov/">History Nebraska</a>. It was funded by the <a href="https://www.neh.gov/">National Endowment for the Humanities</a> and is part of the <a href="https://www.neh.gov/us-newspaper-program">U.S. Newspaper Program</a> (USNP), managed by the <a href="https://www.loc.gov/">Library of Congress</a>.</p>
-
-    <p>The Nebraska Newspaper Project completed a planning grant in 1992-1993. From 1994-1996, UNL Libraries staff cataloged Nebraska newspaper collections at History Nebraska and Czech American newspapers in the UNL Libraries. Once titles were located, holdings were recorded; the newspapers were cataloged following <a href="http://www.loc.gov/acq/conser/">CONSER</a> standards on <a href="https://www.oclc.org/">OCLC</a>, an international online union catalog; and the records were downloaded into the <a href="https://libraries.unl.edu/">UNL Libraries catalog</a>. In 1997, the project developed some additional finding aids for the collection at History Nebraska. From 1998-2000, UNL Libraries and History Nebraska sought newspapers missing from the collections. Many of the papers were taken to Lincoln for microfilming according to international preservation standards.</p>
-
-    <p>Staff for the Nebraska Newspaper Project included:</p>
-
-    <ul>
-      <li>Katherine Walter, Project Director, UNL</li>
-      <li>Andrea Faling, Associate Director, History Nebraska</li>
-      <li>Margaret Mering, Principal Serials Cataloger, UNL</li>
-      <li>Mary Woltemath, Microfilm Curator, History Nebraska</li>
-      <li>Kathy Bowersox, Serial Cataloger, UNL</li>
-      <li>David Harlan, Serials Cataloger, UNL</li>
-      <li>Corinne Jacox, Serials Cataloger, UNL</li>
-      <li>Beth Jedlicka, Serials Cataloger, UNL</li>
-      <li>Charity Stokes, Serials Cataloger, UNL</li>
-      <li>Daniel Schwartz, Nebraska Newspaper Project Librarian, UNL</li>
-      <li>Evelyn Kirk, Library Assistant, UNL</li>
-      <li>Denise Matulka, Library Assistant, UNL</li>
-      <li>Mary McKay, Library Assistant, UNL</li>
-      <li>Sheila Orth, Library Assistant, UNL</li>
-    </ul>
-
-    <h4>Preserving Papers - History Nebraska</h4>
-
-    <p>The Nebraska State Historical Society was founded in 1878 and its first collecting policy was promulgated a year later. Among the items designated as important to the repository’s collections were "files of Nebraska newspapers and magazines, especially complete volumes of past years, or single numbers even." Publishers were encouraged "to contribute their publications eagerly," so that their contributions could be "carefully preserved and bound."</p>
-
-    <p>Complete or partial holdings for about forty newspapers published during the territorial era were provided by J. Sterling Morton. Collected while he served as secretary of Nebraska Territory, the newspapers were transferred to the state historical society when he became president of the organization in 1891.</p>
-
-    <p>Although newspapers were received during the historical society’s early years, it wasn't until Jay Amos Barrett was hired as Assistant Secretary and Librarian, in 1893, that a systematic collection of newspapers was undertaken. Barrett initiated the practice of keeping a record of all newspapers published in the state and worked hard to ensure that publishers sent all newspaper issues to the repository. He persuaded the <em>Nebraska State Journal</em> and the Lincoln Newspaper Union to keep bags in their offices where duplicates of unwanted papers could be set aside for the state’s historical repository. Barrett also solicited back files of contemporary papers and files of discontinued titles. By 1900, the Nebraska State Historical Society had secured appropriations so that binding could take place.</p>
-
-    <p>By the 1930s, the society received almost all of the dailies and three-quarters of the weeklies on an exchange basis. In exchange for newspapers, the organization sent its own publications to each newspaper editor. The editors were considered members of the society and the president of the Nebraska Press Association was a regular voting member of the historical society board. Although the Nebraska Press Association is no longer an ex officio member of the state historical society’s board (this agreement ended in the 1980s), the Press Association continues to encourage its members to send copies of all Nebraska newspapers to the state historical repository.</p>
-
-    <p>The Nebraska State Historical Society purchased its first camera and began the microfilming of Nebraska newspapers in 1952. Prior to that time, newspaper originals had been stored in bundles and were provided in that form to researchers. They were difficult to use and the acidic quality of the paper made it unlikely that they would survive many more years. Director James Olson suggested microfilming as a way to eliminate these difficulties. Developed during the 1930s, the microfilm process was improved during World War II and came into popular use afterwards. The historical society in Nebraska was among the earliest state historical repositories to develop a newspaper microfilming program. The benefits were obvious to curators and the public alike, as microfilming provided a method by which valuable information contained on deteriorating newsprint was preserved, while reducing the storage needed for bulky originals.</p>
-
-    <p>In 2018, the Nebraska State Historical Society announced a name change to History Nebraska. As the only statewide organization dedicated to preserving and sharing the state’s rich history, History Nebraska continues its filming program today, microfilming the approximately 200 titles that it receives from the state's newspaper publishers. The microfilm can be viewed at History Nebraska's headquarters at 1500 'R' Street in Lincoln. Individual reels are also available for purchase or through <a href="https://history.nebraska.gov/collections/interlibrary-loans">interlibrary loan</a>.</p>
-
-    <!-- ACCESS -->
-
-    <h3>Access</h3>
-
-    <h4>UNL Libraries and History Nebraska Catalogs</h4>
-
-    <p>Nebraska newspapers can be found using the <a href="https://history.nebraska.gov/collections/nebraska-newspaper-inventory">Nebraska Newspaper Finding Aids</a> and <a href="http://nhs.mlasolutions.com/oasis/catalog/(S(l2dkcz55snshbczbnmlihy45))/Default.aspx?installation=NebraskaHistorical">catalog</a> available at History Nebraska in addition to the <a href="https://libraries.unl.edu/">UNL Libraries catalog</a>.</p>
-
-    <p>For help searching the holdings listed in the UNL catalog, contact the AskUs staff at the UNL Libraries or search the catalog for “United States Nebraska [name of county] [name of city].”</p>
-
-    <h4>Nebraska Press Association</h4>
-
-    <p>The <a href="https://www.nebpress.com/">Nebraska Press Association</a> web site contains listings of all Nebraska newspapers, available alphabetically by publication name, alphabetically by county name, geographically, or by circulation.</p>
-
-    <h4>Library of Congress</h4>
-
-    <p>The Library of Congress maintains a list of <a href="https://www.loc.gov/rr/news/oltitles.html">Newspaper Archives/Indexes/Morgues</a>.</p>
-
-    <!-- ADDING NEWSPAPERS -->
-
-    <h3>Adding Newspapers</h3>
-
-    <p>If you have funding and would like to see your newspapers added to Nebraska Newspapers, please see the <a href="https://www.loc.gov/ndnp/guidelines/">technical guidelines</a> provided on the <a href="https://chroniclingamerica.loc.gov/">Chronicling America</a> website. All newspapers included here must follow the guidelines.</p>
-
-    <p>Important considerations include the historical significance and the language(s) used in the newspaper. Other considerations include the availability, the technical quality, and the completeness of the microfilm. All newspapers must have a catalog record included in the <a href="https://chroniclingamerica.loc.gov/search/titles/">US Newspaper Directory</a>.</p>
-
-    <p>Before digitizing your newspapers for inclusion on the Nebraska Newspapers website, please consult with Katherine Walter, project director for the NDNP in Nebraska. She can be reached at <a href="mailto:kwalter1@unl.edu">kwalter1@unl.edu</a>.</p>
-
-    <!-- CONTACT -->
-
-    <h3>Contact</h3>
-
-    <p>For more information about the Nebraska Digital Newspaper Project, contact Katherine Walter, project director for the NDNP in Nebraska.  She can be reached at <a href="mailto:kwalter1@unl.edu">kwalter1@unl.edu</a> or (402) 472-3939.</p>
-
-    <p>For technical or other issues, please contact <a href="mailto:cdrh@unl.edu">cdrh@unl.edu</a>.</p>
-
-    <h4>Location & Hours</h4>
-
-    <p>
-    Center for Digital Research in the Humanities<br/>
-    University of Nebraska–Lincoln<br/>
-    319 Love Library<br/>
-    P.O. Box 884100<br/>
-    Lincoln NE, 68588-4100<br/>
-    (402) 472-4547<br/>
-    </p>
-
-    <p>Mon-Fri, 8:00 a.m. to 5:00 p.m.</p>
-
-    <p><em>The CDRH is closed during regular University and Library holidays and shutdowns.</em></p>
-
-  </div>
 
 {% endblock main_content %}

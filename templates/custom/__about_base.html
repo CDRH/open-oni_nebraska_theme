@@ -1,0 +1,29 @@
+{% extends '__l_main.html' %}
+
+{% load static from staticfiles %}
+
+{% block sharetool_container_left %}{% endblock %}
+
+{% block main_content %}
+  {% block about_nav %}
+
+    <ul class="nav nav-pills">
+      <li role="presentation">
+        <a href="{% url 'openoni_about' %}">About</a>
+      </li>
+      <li role="presentation">
+        <a href="{% url 'nebraska_about_adding' %}">Adding</a>
+      </li>
+      <li role="presentation">
+        <a href="{% url 'nebraska_about_history' %}">Project History</a>
+      </li>
+      <li role="presentation">
+        <a href="{% url 'nebraska_about_access' %}">Access</a>
+      </li>
+      <li role="presentation">
+        <a href="{% url 'nebraska_about_contact' %}">Contact</a>
+      </li>
+    </ul>
+
+  {% endblock about_nav %}
+{% endblock main_content %}
