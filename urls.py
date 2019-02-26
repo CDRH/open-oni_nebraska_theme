@@ -6,7 +6,6 @@ urlpatterns = [
   url('access', views.access, name="nebraska_about_access"),
   url('adding', views.adding, name="nebraska_about_adding"),
   url('contact', views.contact, name="nebraska_about_contact"),
-  url('ndnp', views.ndnp, name="nebraska_about_ndnp"),
   url('nnp', views.nnp, name="nebraska_about_nnp"),
 
   # publishing history
