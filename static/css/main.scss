@@ -52,8 +52,8 @@ a:hover {
   text-decoration: underline !important; //Spent a while trying to figure this out, using this for now
 }
 
-input[type="text"], textarea, select { 
-  background-color: $white; 
+input[type="date"], input[type="text"], textarea, select {
+  background-color: $white;
 }
 
 @media (min-width: 768px) {
@@ -300,11 +300,6 @@ input[type="text"], textarea, select {
     margin: 0;
     padding: 10px;
   }
-}
-
-// keep from and to on same line
-#id_date_from, #id_date_to {
-  width: 7em;
 }
 
 // -------------------
