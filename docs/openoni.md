@@ -54,8 +54,6 @@ semanage fcontext -a -t httpd_sys_script_exec_t "/var/local/www/django/openoni/E
 
 # Static asset path needs Apache write access
 mkdir /var/local/www/django/openoni/static/compiled
-chown -R apache /var/local/www/django/openoni/static/compiled
-chmod -R g+w /var/local/www/django/openoni/static/compiled
 semanage fcontext -a -t httpd_sys_rw_content_t "/var/local/www/django/openoni/static/compiled(/.*)?"
 
 restorecon -F -R /var/local/www/django/openoni/
@@ -85,7 +83,7 @@ Run these commands as a regular user rather than root
 ```bash
 cd /var/local/www/django/openoni
 source ENV/bin/activate
-manage.py migrate
+./manage.py migrate
 ```
 
 ### Newspaper Data Symlink
@@ -170,15 +168,14 @@ Run these commands as a regular user rather than root
 ```bash
 cd /var/local/www/django/openoni
 source ENV/bin/activate
-manage.py collectstatic
+
+./manage.py compilescss
+./manage.py collectstatic -c
+
+# Grant write access for both Apache and group
+sudo chown -R apache static/compiled/
+sudo chmod -R g+w static/compiled/
 ```
-
-New contents may need Apache ownership set after creation
-
-```bash
-chown -R apache /var/local/www/django/openoni/static/compiled
-```
-
 
 ## Load Batches
 Run these commands as a regular user rather than root
