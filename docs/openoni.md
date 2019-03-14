@@ -141,10 +141,11 @@ For use with Nebraska Theme:
 `vim onisite/urls.py`:
 ```python
 from django.conf.urls import url, include
+from onisite.plugins.featured_content import views
 
 urlpatterns = [
   url(r'^calendar-', include("onisite.plugins.calendar.urls")),
-  url(r'^$', include("onisite.plugins.featured_content.urls")),
+  url(r'^$', views.featured, name="featured_home"),
   url(r'^map', include("onisite.plugins.map.urls")),
 
   url('', include("themes.nebraska.urls")),
