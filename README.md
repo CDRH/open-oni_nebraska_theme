@@ -60,14 +60,12 @@ Also, in `onisite/urls.py`, add the Nebraska about URLs:
 
 ```
 from django.conf.urls import url, include
+from onisite.plugins.featured_content import views
 
 urlpatterns = [
-  url('', include("onisite.plugins.calendar.urls")),
-  url('', include("onisite.plugins.featured_content.urls")),
+  url(r'^calendar-', include("onisite.plugins.calendar.urls")),
+  url(r'^$', views.featured, name="featured_home"),
   url(r'^map', include("onisite.plugins.map.urls")),
-
-  # you can customize where the featured_content is viewed with this url
-  # url(r'^featured_content', include("onisite.plugins.featured_content.urls")),
 
   url('', include("themes.nebraska.urls")),
   url('', include("core.urls")),
