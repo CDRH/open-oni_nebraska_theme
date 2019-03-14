@@ -104,7 +104,7 @@ RAIS_PLUGINS=datadog.so
 
 Start RAIS docker container
 
-`docker-compose -f docker-compose.override.yml up`
+`docker-compose -f docker-compose.override.yml up -d`
 
 #### Override File
 Docker Compose is supposed to automatically use a `docker-compose.override.yml`
