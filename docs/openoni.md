@@ -13,7 +13,8 @@
     - [Solr Schema](#solr-schema)
     - [Django](#django)
         - [Local Settings](#local-settings)
-        - [Theme and Plugins](#theme-and-plugins)
+            - [Theme and Plugins](#theme-and-plugins)
+            - [Title and Project Name](#title-and-project-name)
         - [Logging](#logging)
         - [URLs](#urls)
         - [WSGI Path](#wsgi-path)
@@ -120,8 +121,49 @@ cp settings_local_example.py settings_local.py
 
 Follow instructions within for the appropriate deployment environment
 
-#### Theme and Plugins
-[Add theme and plugins](/README.md#including-in-the-open-oni-app)
+##### Theme and Plugins
+Add the theme and plugins it incorporates to `INSTALLED_APPS`:
+
+```py
+# List of configuration classes / app packages in order of priority (i.e., the
+# first item in the list has final say when collisions occur)
+INSTALLED_APPS = (
+    # Default
+#    'django.contrib.admin',
+#    'django.contrib.auth',
+#    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # Plugins
+    # See https://github.com/open-oni?q=plugin for available plugins
+    'onisite.plugins.calendar',
+    'onisite.plugins.featured_content',
+    'onisite.plugins.map',
+
+    # OpenONI
+    'django.contrib.humanize',  # Added to make data more human-readable
+    'sass_processor',
+    'themes.nebraska',
+    'themes.default',
+    'core',
+)
+```
+
+##### Title and Project Name
+Set the title and project name text for the website
+
+```py
+# SITE_TITLE that will be used for display purposes throughout app
+# PROJECT_NAME may be the same as SITE_TITLE but can be used
+# for longer descriptions that will only show up occasionally
+# Example 'Open ONI' for most headers, 'Open Online Newspapers Initiative'
+# for introduction / about / further information / etc
+SITE_TITLE = "Nebraska Newspapers"
+PROJECT_NAME = "Nebraska Newspapers"
+```
+
 
 #### Logging
 Create symlink at `/var/log/openoni` to `/var/local/www/django/openoni/log`
@@ -131,25 +173,20 @@ ln -s /var/local/www/django/openoni/log /var/log/openoni
 ```
 
 #### URLs
-For development, use example file as is:
-```bash
-cp onisite/urls_example.py onisite/urls.py
-```
-
-For use with Nebraska Theme:
+Set the URLs file to use the theme and plugins it incorporates
 
 `vim onisite/urls.py`:
 ```python
 from django.conf.urls import url, include
-from onisite.plugins.featured_content import views
+from onisite.plugins.featured_content import views as fc_views
 
 urlpatterns = [
+  url(r'^$', fc_views.featured, name="featured_home"),
   url(r'^calendar-', include("onisite.plugins.calendar.urls")),
-  url(r'^$', views.featured, name="featured_home"),
   url(r'^map', include("onisite.plugins.map.urls")),
 
-  url('', include("themes.nebraska.urls")),
-  url('', include("core.urls")),
+  url(r'', include("themes.nebraska.urls")),
+  url(r'', include("core.urls")),
 ]
 ```
 
