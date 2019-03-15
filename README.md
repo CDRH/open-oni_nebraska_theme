@@ -33,46 +33,12 @@ Copy in Nebraska configuration for the calendar plugin (these may differ if the 
 cp themes/nebraska/conf/plugins/calendar/config.py onisite/plugins/calendar/config.py
 ```
 
-In `onisite/settings_local.py`, add the theme and plugins.  Also configure the application's title settings.
+### Django Settings
+[Configure app settings](/docs/openoni.md#local-settings)
+to use the theme and plugins
+as well as display the appropriate site title and project name
 
-```
-INSTALLED_APPS = (
-    'django.contrib.humanize',
-    'django.contrib.staticfiles',
-
-    'onisite.plugins.calendar',
-    'onisite.plugins.featured_content',
-    'onisite.plugins.map',
-
-    'themes.nebraska',
-    # 'themes.default',
-    'core',
-)
-
-SITE_TITLE = "Nebraska Newspapers"
-PROJECT_NAME = "Nebraska Newspapers"
-```
-
-TODO document the other important settings in `settings_local.py` exist for dev / production servers, not just for local development with docker!
-
-
-Also, in `onisite/urls.py`, add the Nebraska about URLs:
-
-```
-from django.conf.urls import url, include
-
-urlpatterns = [
-  url('', include("onisite.plugins.calendar.urls")),
-  url('', include("onisite.plugins.featured_content.urls")),
-  url(r'^map', include("onisite.plugins.map.urls")),
-
-  # you can customize where the featured_content is viewed with this url
-  # url(r'^featured_content', include("onisite.plugins.featured_content.urls")),
-
-  url('', include("themes.nebraska.urls")),
-  url('', include("core.urls")),
-]
-```
+[Set `urls.py`](/docs/openoni.md#urls) to use the theme and plugins
 
 ## Plugin Customization
 
