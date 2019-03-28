@@ -58,6 +58,22 @@ var cities = [
     }
   },
   {
+    "name": "Harrison",
+    "latlong": [42.69, -103.88],
+    "papers": {
+      "Harrison Press-Journal": "2018270202",
+      "The Journal": "2018270200",
+      "The Sioux County Journal": "2018270201"
+    }
+  },
+  {
+    "name": "Hemingford",
+    "latlong": [42.32, -103.07],
+    "papers": {
+      "Hemingford Herald": "sn94055309"
+    }
+  },
+  {
     "name": "Lincoln",
     "latlong": [40.81, -96.68],
     "papers": {
