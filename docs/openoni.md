@@ -6,6 +6,7 @@
 - [Install](#install)
     - [Clone OpenONI](#clone-openoni)
     - [SELinux Permissions](#selinux-permissions)
+    - [File-based Cache Directory](#file-based-cache-directory)
     - [Python Virtual Environment](#python-virtual-environment)
     - [Migrate Database](#migrate-database)
     - [Newspaper Data Symlink](#newspaper-data-symlink)
@@ -58,6 +59,15 @@ mkdir /var/local/www/django/openoni/static/compiled
 semanage fcontext -a -t httpd_sys_rw_content_t "/var/local/www/django/openoni/static/compiled(/.*)?"
 
 restorecon -F -R /var/local/www/django/openoni/
+```
+
+### File-based Cache Directory
+This is only used if the production settings file is enabled in Open ONI's `settings_local.py`
+
+```bash
+mkdir -p /var/tmp/django_cache
+chown apache /var/tmp/django_cache
+chmod 2770 /var/tmp/django_cache
 ```
 
 ### Python Virtual Environment
@@ -213,6 +223,12 @@ source ENV/bin/activate
 # Grant write access for both Apache and group
 sudo chown -R apache static/compiled/
 sudo chmod -R g+w static/compiled/
+```
+
+In production environments, perform a graceful Apache restart after re-compiling static assets so the app uses the updated static file hash fingerprints in the URLs rendered in templates:
+
+```bash
+sudo apachectl graceful
 ```
 
 ## Load Batches
