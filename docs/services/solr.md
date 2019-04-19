@@ -3,7 +3,7 @@
 **Contents**
 
 - [Install](#install)
-- [Create OpenONI Core](#create-openoni-core)
+- [Create Open ONI Core](#create-openoni-core)
 - [Backups](#backups)
 - [Configure](#configure)
 
@@ -16,7 +16,7 @@ Follow the instructions on this wiki page:
 - [Solr](https://github.com/CDRH/CDRH-General/wiki/Solr)
 
 
-## Create OpenONI Core
+## Create Open ONI Core
 ```bash
 sudo -u solr /opt/solr/bin/solr create_core -c openoni
 ```
@@ -41,7 +41,7 @@ Schedule a regular backup in `/etc/crontab`:
 
 
 ## Configure
-Further config is handled after the OpenONI repository is cloned
+Further config is handled after the Open ONI repository is cloned
 
-[Configure OpenONI Schema](/docs/openoni.md#solr-schema)
+[Configure Open ONI Schema](/docs/openoni.md#solr-schema)
 

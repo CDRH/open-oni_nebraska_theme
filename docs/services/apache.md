@@ -15,7 +15,7 @@
 
 Install documentation is located in the private CDRH-General repo
 
-One difference for the OpenONI deployments from this documentation is that
+One difference for the Open ONI deployments from this documentation is that
 local Apache config files are added at `/etc/httpd/local/`
 rather than `/etc/httpd/cdrh/`
 
@@ -33,7 +33,7 @@ Follow instructions in these two wiki pages:
 ## Configure
 
 ### Directory Indices
-OpenONI uses directory indices to allow visitors to browse data files
+Open ONI uses directory indices to allow visitors to browse data files
 
 We generally disable directory indices and the icons the Apache-generated pages
 use, so we need to re-enable access to the icons

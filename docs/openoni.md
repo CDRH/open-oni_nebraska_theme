@@ -1,10 +1,10 @@
-# OpenONI
+# Open ONI
 
 **Contents**
 
 - [Dependencies](#dependencies)
 - [Install](#install)
-    - [Clone OpenONI](#clone-openoni)
+    - [Clone Open ONI](#clone-openoni)
     - [SELinux Permissions](#selinux-permissions)
     - [File-based Cache Directory](#file-based-cache-directory)
     - [Python Virtual Environment](#python-virtual-environment)
@@ -31,7 +31,7 @@ Install [required services](/docs/services/)
 
 ## Install
 
-### Clone OpenONI
+### Clone Open ONI
 
 ```bash
 mkdir /var/local/www/django
@@ -84,7 +84,7 @@ source ENV/bin/activate
 pip install -U pip
 pip install -U setuptools
 
-# Install / update OpenONI dependencies
+# Install / update Open ONI dependencies
 pip install -U -r requirements.pip
 ```
 
@@ -152,7 +152,7 @@ INSTALLED_APPS = (
     'onisite.plugins.featured_content',
     'onisite.plugins.map',
 
-    # OpenONI
+    # Open ONI
     'django.contrib.humanize',  # Added to make data more human-readable
     'sass_processor',
     'themes.nebraska',

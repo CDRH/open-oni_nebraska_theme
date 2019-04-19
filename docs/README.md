@@ -1,6 +1,6 @@
-# OpenONI Docs
+# Open ONI Docs
 
-This documentation focuses on deployment of OpenONI on CentOS 7
+This documentation focuses on deployment of Open ONI on CentOS 7
 
 Documentation currently references private CDRH documentation and scripts
 which we plan to release publicly in the future
@@ -16,13 +16,13 @@ Separate documents:
     - [MariaDB](/docs/services/mariadb.md)
     - [RAIS](/docs/services/rais.md)
     - [Solr](/docs/services/solr.md)
-- [OpenONI](/docs/openoni.md)
+- [Open ONI](/docs/openoni.md)
 
 
 ## Files
 
 - `/var/local/newspapers/` - Newspaper batch files
-- `/var/local/www/django/openoni/` - OpenONI software
-    - `onisite/plugins/` - OpenONI plugins
-    - `themes/` - OpenONI themes
+- `/var/local/www/django/openoni/` - Open ONI software
+    - `onisite/plugins/` - Open ONI plugins
+    - `themes/` - Open ONI themes
 
