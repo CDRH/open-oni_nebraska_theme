@@ -78,3 +78,7 @@ Until such time as the LoC updates their Marc records from OCLC, you need to inc
 ```
 MARC_RETRIEVAL_URLFORMAT = "https://raw.githubusercontent.com/CDRH/open-oni_nebraska_theme/master/marc/%s/marc.xml"
 ```
+
+## Compile Assets
+
+[See nebraska oni docsdocs](/openoni.md#compile-static-assets)
