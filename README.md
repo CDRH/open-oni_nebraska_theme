@@ -81,4 +81,4 @@ MARC_RETRIEVAL_URLFORMAT = "https://raw.githubusercontent.com/CDRH/open-oni_nebr
 
 ## Compile Assets
 
-[See nebraska oni docsdocs](/openoni.md#compile-static-assets)
+[See nebraska oni docs](docs/openoni.md#compile-static-assets)
