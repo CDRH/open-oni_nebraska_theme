@@ -192,7 +192,7 @@ from onisite.plugins.featured_content import views as fc_views
 
 urlpatterns = [
   url(r'^$', fc_views.featured, name="featured_home"),
-  url(r'^calendar-', include("onisite.plugins.calendar.urls")),
+  url(r'', include("onisite.plugins.calendar.urls")),
   url(r'^map', include("onisite.plugins.map.urls")),
 
   url(r'', include("themes.nebraska.urls")),
