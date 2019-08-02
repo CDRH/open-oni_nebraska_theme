@@ -217,7 +217,6 @@ Run these commands as a regular user rather than root
 cd /var/local/www/django/openoni
 source ENV/bin/activate
 
-./manage.py compilescss
 ./manage.py collectstatic -c
 
 # Grant write access for both Apache and group
