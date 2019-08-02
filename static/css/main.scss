@@ -365,7 +365,13 @@ input[type="date"], input[type="text"], textarea, select {
   }
 }
 
-.search_results_ctrl a, span.off {
+.search_results_ctrl a {
+  background-color: $white;
+  border: 1px solid $gray;
+  display: inline-block;
+}
+
+span.off {
   background-color: $white;
   border: 1px solid $gray;
   display: inline-block;
