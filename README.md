@@ -82,3 +82,35 @@ MARC_RETRIEVAL_URLFORMAT = "https://raw.githubusercontent.com/CDRH/open-oni_nebr
 ## Compile Assets
 
 [See nebraska oni docs](docs/openoni.md#compile-static-assets)
+
+## Load Batch Quick Reference
+
+Upload your batch files to `/var/local/newspapers/(batch_name)`. Then run:
+
+```bash
+sudo chmod -R g+rwX /var/local/newspapers/(batch_name)
+sudo chmod -R o+rX /var/local/newspapers/(batch_name)
+```
+
+Then run the following commands from the base of the Nebraska open-oni install as a regular user, NOT as root.
+
+```bash
+source ENV/bin/activate
+
+./manage.py load_batch /var/local/newspapers/(batch_name)/
+
+# For batches to be visible in /batches page, must be released
+# Add --reset flag to clear release dates and recalculate them
+# Release date and time come from:
+# 1. bag-info.txt, if found in the batch source
+# 2. Tab-delimited CSV file if provided in format: batch_name \t batch_date
+# 3. http://chroniclingamerica.loc.gov/batches.xml
+# 4. Current server datetime
+./manage.py release
+```
+
+If you want to chain together multiple batches, or you want to prevent scripts from exiting if the terminal shell is closed / session disconnects, run `nohup` with a command or script.
+
+```bash
+nohup (command) >> nohup.out
+```
