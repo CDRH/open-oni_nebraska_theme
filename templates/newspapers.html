@@ -17,9 +17,30 @@
 
 {% block newspapers_table_intro %}
 <div class="results_nav">
-    <p>Pages Available: {{ page_count|intcomma }}</p>
-    <p>{{ titles.count|intcomma }} newspaper{{ titles.count|pluralize }} available for viewing on this site. To search U.S. Newspapers, go to Chronicling America's <a href="https://chroniclingamerica.loc.gov/search/titles/">U.S. Newspaper Directory, 1690-Present</a>.
-    </p>
+    <div class="row">
+        <div class="col-md-6 form-inline">
+            <label for="filterTitles">Search Titles: </label>
+            <span id="filterTitlesHelp" class="help-block">
+                Type a partial name to show only those which match below
+            </span>
+            <input type="text" id="filterTitles" class="form-control"
+                aria-describedby="filterTitlesHelp"
+                placeholder="Start typing to search..." />
+            <button type="reset" id="resetTitles" class="btn btn-primary">
+                Reset
+            </button>
+        </div>
+        <div class="col-md-6">
+            <p>Titles available: {{ titles.count|intcomma }}</p>
+            <p>Pages available: {{ page_count|intcomma }}</p>
+            <p>
+                To search all U.S. newspapers, go to<br>
+                Chronicling America's <a
+                href="https://chroniclingamerica.loc.gov/search/titles/">U.S.
+                Newspaper Directory, 1690-Present</a>
+            </p>
+        </div>
+    </div>
 </div>
 {% endblock newspapers_table_intro %}
 
@@ -29,8 +50,8 @@
     <thead>
     <tr>
         <th scope="col" class="left_no_border">City</th>
-        <th scope="col">Newspaper</th>
-        <th scope="col">Browse Issues</th>
+        <th scope="col" class="sort-titles">Newspaper</th>
+        <th scope="col" class="sort-off">Browse Issues</th>
         <th scope="col">No. of Issues</th>
         <th scope="col">Earliest Issue</th>
         <th scope="col">Latest Issue</th>

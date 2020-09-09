@@ -217,8 +217,10 @@ Run these commands as a regular user rather than root
 cd /var/local/www/django/openoni
 source ENV/bin/activate
 
+# Note: compilescss commands only necessary for production environment
 ./manage.py compilescss
 ./manage.py collectstatic -c
+./manage.py compilescss --delete-files
 
 # Grant write access for both Apache and group
 sudo chown -R apache static/compiled/
@@ -232,14 +234,5 @@ sudo apachectl graceful
 ```
 
 ## Load Batches
-Run these commands as a regular user rather than root
 
-```bash
-# Repeat as necessary
-./manage.py load_batch /var/local/www/django/openoni/data/batches/(batch_name)/
-
-# Run a script with nohup in the background to ingest multiple batches quietly
-# nohup prevents scripts from exiting if one closes the terminal shell
-nohup (command) >> nohup.out
-```
-
+Instructions for loading batches are available in the [README](../README.md).
