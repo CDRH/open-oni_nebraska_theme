@@ -1,6 +1,5 @@
 {% extends "__base.html" %}
 
-{% load sass_tags %}
 {% load static from staticfiles %}
 
 {% comment %}
@@ -57,7 +56,7 @@
   <link href="https://fonts.googleapis.com/css?family=Oranienbaum"
     rel="stylesheet">
   {{ block.super }}
-  <link href="{% sass_src 'css/main.scss' %}" rel="stylesheet">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
 {% endblock head_page_css %}
 
 {% block javascript %}
