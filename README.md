@@ -62,7 +62,7 @@ TODO
 - select specific featured pages from our currently loaded options, then add that config file and copying process to this repository
 
 UNTIL THEN
-- Copy config demo file to `onisite/plugins/featured_content/config.py`
+- Copy plugin's example config file to `onisite/plugins/featured_content/config.py`
 
 ### Map
 
