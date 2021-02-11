@@ -3,7 +3,9 @@ This is the new nebraska child theme for open-oni
 
 ## Including in the Open ONI App
 
-Clone the Open ONI repository's v0.10.0 tag and add the Nebraska theme to the `themes` directory
+Clone the Open ONI repository's latest v1.0.x tag and add the Nebraska theme to the `themes` directory.
+If you are upgrading from v0.1.x, you will need to remove
+`sass_processor` from `onisite/settings_local.py`.
 
 ```
 git clone git@github.com:open-oni/open-oni.git open-oni
@@ -60,7 +62,7 @@ TODO
 - select specific featured pages from our currently loaded options, then add that config file and copying process to this repository
 
 UNTIL THEN
-- Copy config demo file to `onisite/plugins/featured_content/config.py`
+- Copy plugin's example config file to `onisite/plugins/featured_content/config.py`
 
 ### Map
 

@@ -1,55 +1,13 @@
 {% extends "__base.html" %}
 
-{% load sass_tags %}
-{% load static from staticfiles %}
+{% load static %}
 
 {% comment %}
-  This file sits between base and layouts, __l_(layout).html files, so you can
-  override parts of __base.html.
+  To customize your installation, create a new "__overrides.html" file in the
+  appropriate theme location and override blocks of code from "__base.html."
 
-  All of the templates should be building off of this template, so
-  there is no need to alter "__base.html" nor to duplicate it in new themes.
-
-  {{ block.super }} includes the contents of the original / parent block
-
-  To customize the look and feel of your installation, create
-  a new "__overrides.html" file in the appropriate theme
-  (themes/your_theme/templates/__overrides.html) and override blocks of code
-  from "__base.html" as desired. The blocks in __base.html are listed below:
-
-  head_all
-    head_site_meta
-    head_opensearch
-    head_page_meta
-    head_page_title
-    head_page_css
-    javascript
-    head_item_metadata
-    head_extra
-
-  body_content
-    header
-      header_title
-      navbar
-        navbar_home
-        navbar_pos1
-        navbar_pos2
-        navbar_pos3
-        navbar_pos4
-        navbar_pos5
-        navbar_advancedsearch
-        navbar_search
-
-    breadcrumbs
-
-    content
-      page_head_container
-        page_head
-          sub_page_head
-      main_content
-      subcontent
-
-  footer
+  Please see "/docs/customization/theme.md" for information about the
+  available template blocks and overriding recommendations.
 {% endcomment %}
 
 {% block head_page_css %}
@@ -57,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css?family=Oranienbaum"
     rel="stylesheet">
   {{ block.super }}
-  <link href="{% sass_src 'css/main.scss' %}" rel="stylesheet">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
 {% endblock head_page_css %}
 
 {% block javascript %}
@@ -116,12 +74,12 @@
     <div class="container">
       <div class="navbar-center">
         {# Brand and toggle get grouped for better mobile display #}
-          <form class="navbar-form navbar-left"  action="{% url 'openoni_search_pages_results' %}" method="get">
+          <form class="navbar-form navbar-left" action="{% url 'openoni_search_pages_results' %}" method="get">
             <div class="form-group">
               {{ city_form.city }}
               <input type="hidden" name="rows" id="rows" alt="rows" value="20" />
               <input type="hidden" name="searchType" alt="searchType" value="basic" />
-              <input class="form-control" type="text" name="proxtext" placeholder="search words">
+              <input class="form-control" type="text" name="proxtext" placeholder="search words" aria-label="search words">
             </div>{# /form-group #}
 
             <button type="submit" class="btn btn-primary">
@@ -178,9 +136,9 @@
       </ul>
 
       <div class="foot_logos">
-        <a href="http://unl.edu" class="unl"><img src="{% static 'images/unl.png' %}"/></a>
-        <a href="http://www.neh.gov/" class="neh"><img src="{% static 'images/logo_NEH.png' %}"/></a>
-        <a href="http://www.nebraskahistory.org/index.shtml" class="nshs"><img src="{% static 'images/logo_nshs.png' %}"/></a>
+        <a href="http://unl.edu" class="unl"><img src="{% static 'images/unl.png' %}" alt="University of Nebraska Lincoln logo"/></a>
+        <a href="http://www.neh.gov/" class="neh"><img src="{% static 'images/logo_NEH.png' %}" alt="National Endowment for the Humanities logo"/></a>
+        <a href="http://www.nebraskahistory.org/index.shtml" class="nshs"><img src="{% static 'images/logo_nshs.png' %}" alt="Nebraska State Historical Society Logo"/></a>
       </div>
 
       <p class="poweredby">
