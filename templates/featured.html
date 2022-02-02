@@ -24,7 +24,7 @@
           <li>
             <a href="{% url 'openoni_page' page.lccn page.date page.edition page.sequence %}">
               {% if page.page_obj.relative_image_path %}
-                <img src="{% custom_size_image_url page.page_obj 500 %}" alt="" />
+                <img src="{% image_url page.page_obj 500 %}" alt="" />
               {% endif %}
               <p class="featured_title">{{ page.name }}</p>
               <p class="featured_date">{{ page.date }}</p>
