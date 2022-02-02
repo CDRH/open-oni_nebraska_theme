@@ -1,4 +1,4 @@
-<!-- http://BASE_URI/about/ -->
+{# http://BASE_URI/about/ #}
 
 {% extends "custom/__about_base.html" %}
 
@@ -11,8 +11,6 @@
   {{ block.super }}
 
   <div id="std_box">
-    
-    <!-- PRIMARY ABOUT CONTENT -->
     <h3>Overview and Team</h3>
 
     <div class="wdn-responsive-embed wdn-aspect16x9">
@@ -31,16 +29,10 @@
 
     <ul>
       <li>Karin Dalziel, Digital Development Manager and Designer, Center for Digital Research in the Humanities (CDRH), University of Nebraska–Lincoln</li>
-      <li>Jessica Dussault, Programmer/Analyst II, CDRH, University of Nebraska–Lincoln</li>
-      <li>Andrea Faling, Head of Reference, History Nebraska</li>
       <li>Margaret Mering, Professor Authority and Identity Management, University of Nebraska–Lincoln Libraries</li>
-      <li>Andy Pederson, DISC Office Associate, CDRH, University of Nebraska-Lincoln</li>
-      <li>Whitney Rittscher, Undergraduate Research Assistant, University of Nebraska-Lincoln</li>
-      <li>Janel Simons, Newspaper Associate, CDRH, University of Nebraska–Lincoln</li>
+      <li>Andy Pederson, Project Specialist, CDRH, University of Nebraska-Lincoln</li>
       <li>Greg Tunink, Programmer/Analyst II, CDRH, University of Nebraska–Lincoln</li>
-      <li>Katherine Walter, Professor and Co-Director, CDRH; Chair, Digital Initiatives & Special Collections; Principal Investigator, University of Nebraska–Lincoln</li>
       <li>Laura Weakly, Metadata Encoding Specialist, CDRH, University of Nebraska–Lincoln</li>
-      <li>Mary Woltemath, Microfilm Curator, History Nebraska</li>
     </ul>
 
     <h4>Advisory Board</h4>
@@ -60,13 +52,19 @@
 
     <ul>
       <li>Jeff Downey, Newspaper Associate, University of Nebraska–Lincoln</li>
+      <li>Jessica Dussault, Programmer/Analyst III, CDRH, University of Nebraska–Lincoln</li>
+      <li>Andrea Faling, Head of Reference, History Nebraska</li>
       <li>Sam Herley, History graduate student, University of Nebraska–Lincoln</li>
       <li>Keith Nickum, Programmer / Analyst, University of Nebraska-Lincoln</li>
       <li>Erin Pedigo, Journalism and History graduate student, University of Nebraska–Lincoln</li>
       <li>Brian Pytlik Zillig, Professor of Libraries, University of Nebraska–Lincoln</li>
       <li>Breanne Reiss, Newspaper Associate, University of Nebraska–Lincoln</li>
       <li>Brenden Rensink, History graduate student, University of Nebraska–Lincoln</li>
+      <li>Whitney Rittscher, Undergraduate Research Assistant, University of Nebraska-Lincoln</li>
       <li>Brent Rogers, History graduate student, University of Nebraska–Lincoln</li>
+      <li>Janel Simons, Newspaper Associate, CDRH, University of Nebraska–Lincoln</li>
+      <li>Katherine Walter, Professor and Co-Director, CDRH; Chair, Digital Initiatives & Special Collections; Principal Investigator, University of Nebraska–Lincoln</li>
+      <li>Mary Woltemath, Microfilm Curator, History Nebraska</li>
     </ul>
 
     <h4> Former Board Members</h4>
@@ -79,7 +77,7 @@
       <li>John R. Wunder, Professor, History and College of Journalism & Mass Communication, University of Nebraska-Lincoln</li>
     </ul>
 
-  </div><!-- end id:std_box -->
+  </div>{# end id:std_box #}
 
 
 {% endblock main_content %}
