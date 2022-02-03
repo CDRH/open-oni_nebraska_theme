@@ -81,6 +81,13 @@ MARC_RETRIEVAL_URLFORMAT = "https://raw.githubusercontent.com/CDRH/open-oni_nebr
 
 ## Compile Assets
 
+Compile `main.scss` to `main.css` with [Sass command line
+tool](https://sass-lang.com/install):
+
+```bash
+sass static/css/main.scss static/css/main.css
+```
+
 [See nebraska oni docs](docs/openoni.md#compile-static-assets)
 
 ## Load Batch Quick Reference
