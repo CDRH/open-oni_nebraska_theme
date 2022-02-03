@@ -1,3 +1,7 @@
+.help-block {
+  color: #222;
+}
+
 .main_content {
   background-color: #efefea;
   padding-bottom: 3em;
@@ -85,6 +89,32 @@ input[type=date], input[type=text], textarea, select {
 }
 .navbar a {
   text-decoration: none;
+}
+.navbar .btn {
+  font-weight: bold;
+}
+.navbar .form-control {
+  color: #222;
+  font-weight: bold;
+}
+.navbar .form-control::placeholder {
+  color: #888;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #222;
+  font-weight: bold;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #222;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  color: #222;
+  font-weight: bold;
+}
+.navbar-default .navbar-nav > .active > a:hover {
+  color: #222;
 }
 
 .navbar-right {

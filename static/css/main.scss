@@ -11,6 +11,10 @@ $gray: #cccccc;
 $gray-shade1: #dddddd;
 $highlight: #ff0000;
 
+.help-block {
+  color: #222;
+}
+
 .main_content {
   background-color: $newsprint;
   padding-bottom: 3em;
@@ -103,7 +107,6 @@ input[type="date"], input[type="text"], textarea, select {
 // -------------------
 // Navigation
 // -------------------
-
 .navbar {
   background-color: rgba($white, 0.7);
   border: double $black 3px;
@@ -115,6 +118,37 @@ input[type="date"], input[type="text"], textarea, select {
 
   a {
     text-decoration: none;
+  }
+
+  .btn {
+    font-weight: bold;
+  }
+
+  .form-control {
+    color: #222;
+    font-weight: bold;
+
+    &::placeholder {
+      color: #888;
+    }
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #222;
+  font-weight: bold;
+
+  &:hover {
+    color: #222;
+  }
+}
+
+.navbar-default .navbar-nav > .active > a {
+  color: #222;
+  font-weight: bold;
+
+  &:hover {
+    color: #222;
   }
 }
 
