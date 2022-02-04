@@ -76,11 +76,11 @@
         {# Brand and toggle get grouped for better mobile display #}
           <form class="navbar-form navbar-left" action="{% url 'openoni_search_pages_results' %}" method="get">
             <div class="form-group">
-              <label for="global_city_id">Search pages of</label>
+              <label class="small" for="global_city_id">Search pages of</label>
               {{ city_form.city }}
               <input type="hidden" name="rows" id="rows" alt="rows" value="20" />
               <input type="hidden" name="searchType" alt="searchType" value="basic" />
-              <label for="proxtext">for text:</label>
+              <label class="small" for="proxtext">for text:</label>
               <input id="proxtext" class="form-control" type="search" name="proxtext" aria-label="Search terms">
             </div>{# /form-group #}
 
