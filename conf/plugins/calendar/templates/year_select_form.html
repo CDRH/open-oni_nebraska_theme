@@ -1,0 +1,20 @@
+<div class="row">
+  {# NE theme change #}
+  <div class="col-md-6">
+  {# / NE theme change #}
+    <div>
+      <label for="id_year">Jump to year</label>
+      {{calendar.year_form.year}}
+      <button id="jump-year" class="btn btn-primary">Go</button>
+    </div>
+  </div>
+  {% if display_multiple %}
+  {# NE theme change #}
+  <div class="col-md-6">
+  {# / NE theme change #}
+    <span class="issues-multiple">
+      * Indicates dates with multiple editions
+    </span>
+  </div>
+  {% endif %}
+</div>
