@@ -15,6 +15,13 @@ var cities = [
     }
   },
   {
+    "name": "Blair",
+    "latlong": [41.54, -96.14],
+    "papers": {
+      "Danskeren": "sn86086559"
+    }
+  },
+  {
     "name": "Broken Bow",
     "latlong": [41.40, -99.64],
     "papers": {
@@ -51,10 +58,26 @@ var cities = [
     }
   },
   {
+    "name": "Dannebrog",
+    "latlong": [41.12, -98.55],
+    "papers": {
+      "Stjernen": "2010270500"
+    }
+  },
+  {
     "name": "Falls City",
     "latlong": [40.07, -95.6],
     "papers": {
       "The Fall City Tribune": "sn94056446",
+    }
+  },
+  {
+    "name": "Grand Island",
+    "latlong": [40.93, -98.34],
+    "papers": {
+      "Grand Island Anzeiger und Herold": "2019270501",
+      "Grand Island Anzeiger": "2019270500",
+      "Nebraska Staats-Anzeiger und Herold": "2019270502"
     }
   },
   {
@@ -86,6 +109,13 @@ var cities = [
       "The Nebraskan": "sn96080313",
       "Saturday Morning Courier": "2010270512",
       "Sunday Morning Courier": "2010270511"
+    }
+  },
+  {
+    "name": "Loup City",
+    "latlong": [41.28, -98.97],
+    "papers": {
+      "The Loup City Northwestern": "2018270203"
     }
   },
   {
