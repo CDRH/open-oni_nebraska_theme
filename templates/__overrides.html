@@ -97,13 +97,13 @@
 {% endblock navbar %}
 
 {% block navbar_pos2 %}
-  <li><a href="{% url 'map_home' %}">City</a></li>
+  <li><a href="{% url 'map_home' %}">Map of Cities</a></li>
 {% endblock navbar_pos2 %}
 
 {% block navbar_pos3 %}{# We do not need API in the nav #}{% endblock %}
 
 {% block navbar_pos4 %}
-  <li><a href="{% url 'calendar_all_issues_calendar' %}">Date</a></li>
+  <li><a href="{% url 'calendar_all_issues_calendar' %}">Calendar of Issues</a></li>
 {% endblock navbar_pos4 %}
 
 {% block navbar_pos5 %}{# Moved help to new list below #}{% endblock %}
@@ -125,8 +125,8 @@
       <ul>
         <li><a href="{% url 'openoni_home' %}">Home</a></li>
         <li><a href="{% url 'openoni_newspapers' %}">Newspapers</a></li>
-        <li><a href="{% url 'map_home' %}">City</a></li>
-        <li><a href="{% url 'calendar_all_issues_calendar' %}">Date</a></li>
+        <li><a href="{% url 'map_home' %}">Map of Cities</a></li>
+        <li><a href="{% url 'calendar_all_issues_calendar' %}">Calendar of Issues</a></li>
 
         <li><a href="{% url 'nebraska_publishing' %}">Publishing History</a></li>
         <li><a href="{% url 'openoni_help' %}">Help</a></li>
