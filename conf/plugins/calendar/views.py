@@ -14,7 +14,9 @@ from onisite.plugins.calendar import config
 
 @cache_page(settings.DEFAULT_TTL_SECONDS)
 def all_issues_calendar(request, year=None):
+    # NE theme change
     page_title = "Calendar of Issues"
+    # / NE theme change
     page_name = "issues"
     crumbs = list(settings.BASE_CRUMBS)
     display_multiple = config.MULTIPLES_ALL_ISSUES
