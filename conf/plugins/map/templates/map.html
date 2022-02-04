@@ -1,0 +1,65 @@
+{% extends '__l_main.html' %}
+
+{% load static %}
+
+{# comment out block tabs and "pages available" #}
+{% block sharetool_container_left %}{% endblock %}
+
+{% block head_page_css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'vendor/leaflet/leaflet.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/map.css' %}"/>
+{% endblock head_page_css %}
+
+{% block javascript %}
+  {{ block.super }}
+  {# Leaflet and Stamen libraries; City coordinates & links list #}
+  <script src="{% static 'vendor/leaflet/leaflet.js' %}"></script>
+  <script src="{% static 'vendor/stamen/stamen.js' %}"></script>
+  <script src="{% static 'js/cities_list.js' %}"></script>
+  {% block javascript_map_settings %}
+    <script>
+      // map settings
+      var stamenType = "toner";
+      var startLat = 41.5;
+      var startLong = -99.316;
+      var startZoom = 7;
+      var markerColor = "#000000";
+    </script>
+  {% endblock javascript_map_settings %}
+  {# Render map after page load #}
+  <script src="{% static 'js/map.js' %}"></script>
+{% endblock javascript %}
+
+{% block subcontent %}
+
+  {% block map %}
+    <p>
+      Note a <a href="#city_list">list of newspapers by city</a> is presented
+      below the map
+    </p>
+
+    {# provide the map with a div to live inside #}
+    <div id="map_container"></div>
+  {% endblock map %}
+
+  {% block city_list_text %}
+    <h3>List of Newspapers by City</h3>
+
+    <div class="city_list_container">
+      <ul id="city_list" class="city_list">
+      {% for place in places %}
+        <li>
+          <h3>{{ place.city }}</h3>
+          <ul class="title_list">
+            {% for title in place.titles.all %}
+              <li><a href="{% url 'openoni_title' title.lccn %}">{{ title.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endblock city_list_text %}
+
+{% endblock %}

@@ -33,6 +33,11 @@ Copy in Nebraska configuration for the calendar plugin (these may differ if the 
 cp themes/nebraska/conf/plugins/calendar/config.py onisite/plugins/calendar/config.py
 ```
 
+The calendar and map plugins require changes to their files to have page titles
+and headers match the nav link texts we changed. Copy these files from
+`conf/plugins/calendar/` and `conf/plugins/map/` to the corresponding
+directories in `openoni/onisite/plugins/`.
+
 ### Django Settings
 [Configure app settings](/docs/openoni.md#local-settings)
 to use the theme and plugins
