@@ -158,6 +158,13 @@ var cities = [
     }
   },
   {
+    "name": "O'Neill",
+    "latlong": [42.46, -98.65],
+    "papers": {
+      "The Frontier": "2010270509"
+    }
+  },
+  {
     "name": "Omaha",
     "latlong": [41.25, -96.0],
     "papers": {
