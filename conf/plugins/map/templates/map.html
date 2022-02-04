@@ -34,20 +34,26 @@
 {% block subcontent %}
 
   {% block map %}
+    {# NE theme change #}
     <p>
       Note a <a href="#city_list">list of newspapers by city</a> is presented
       below the map
     </p>
 
     {# provide the map with a div to live inside #}
+    {# / NE theme change #}
     <div id="map_container"></div>
   {% endblock map %}
 
   {% block city_list_text %}
+    {# NE theme change #}
     <h3>List of Newspapers by City</h3>
+    {# / NE theme change #}
 
     <div class="city_list_container">
+      {# NE theme change #}
       <ul id="city_list" class="city_list">
+      {# / NE theme change #}
       {% for place in places %}
         <li>
           <h3>{{ place.city }}</h3>
