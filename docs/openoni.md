@@ -85,7 +85,7 @@ pip install -U pip
 pip install -U setuptools
 
 # Install / update Open ONI dependencies
-pip install -U -r requirements.pip
+pip install -U -r requirements.txt
 ```
 
 ### Migrate Database
@@ -186,16 +186,20 @@ Set the URLs file to use the theme and plugins it incorporates
 
 `vim onisite/urls.py`:
 ```python
-from django.conf.urls import url, include
+from django.urls import include, path, re_path
 from onisite.plugins.featured_content import views as fc_views
 
 urlpatterns = [
-  url(r'^$', fc_views.featured, name="featured_home"),
-  url(r'', include("onisite.plugins.calendar.urls")),
-  url(r'^map', include("onisite.plugins.map.urls")),
+  # Plugin URLs
+  path('', include("onisite.plugins.calendar.urls")),
+  re_path(r'^$', views.featured, name="featured_home"),
+  re_path(r'^map', include("onisite.plugins.map.urls")),
 
-  url(r'', include("themes.nebraska.urls")),
-  url(r'', include("core.urls")),
+  # Theme URLs
+  path('', include("themes.nebraska.urls")),
+
+  # Open ONI URLs
+  path('', include("core.urls")),
 ]
 ```
 
