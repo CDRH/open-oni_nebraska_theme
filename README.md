@@ -63,11 +63,20 @@ This calendar replaces the less accessible original calendar. You will need to c
 
 You do not need to copy the `featured_example.html`, as the `featured.html` file is already at `themes/nebraska/templates/featured.html`.
 
-TODO
-- select specific featured pages from our currently loaded options, then add that config file and copying process to this repository
+Copy plugin's example config file to `onisite/plugins/featured_content/config.py`
+and change to use "This day in history" function. Review whether min and max
+years are accurate by sorting on the `/newspapers` page.
 
-UNTIL THEN
-- Copy plugin's example config file to `onisite/plugins/featured_content/config.py`
+```python
+# Set to True to enable the 'This day in history' function
+THISDAY = True
+
+# Set to earliest year to search with THISDAY
+MINYEAR = 1854
+
+# Set to latest year to search  with THISDAY
+MAXYEAR = 2001
+```
 
 ### Map
 
