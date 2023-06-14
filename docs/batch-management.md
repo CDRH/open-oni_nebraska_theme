@@ -83,7 +83,8 @@ batch_nbu_(batch name)/
 ┣━━━ batch.xml
 ┗━━━ batch_1.xml
 
-# This rsync command is resumable if interrupted
+# This rsync command is resumable if interrupted and usually takes up to 45 min.
+# The % progress and time estimates shown are often optimistically inaccurate.
 # Explanation of rsync options: https://explainshell.com/explain?cmd=rsync+-ahuX+--del
 # Note that omission and presence of trailing slashes here matters,
 # so type carefully and double-check before submitting the command!
