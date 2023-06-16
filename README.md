@@ -83,14 +83,6 @@ The JS file containing the map locations does not need to be moved into the plug
 TODO
 - consider adding lat / lng to titles in the database, otherwise update the existing list `themes/nebraska/static/js/cities_list.js` as needed
 
-## Load Plattsmouth Papers
-
-Until such time as the LoC updates their Marc records from OCLC, you need to include this line in your `settings_local.py` file before you can load any of the Plattsmouth batches.  All other batches will not load while this line is in your settings, so remember to comment it or remove it after loading Plattsmouth:
-
-```python
-MARC_RETRIEVAL_URLFORMAT = "https://raw.githubusercontent.com/CDRH/open-oni_nebraska_theme/master/marc/%s/marc.xml"
-```
-
 ## Compile Assets
 
 Compile `main.scss` to `main.css` with [Sass command line
@@ -105,4 +97,5 @@ For production, one must run additional commands to
 
 ## Batch Management
 
+For loading newspaper data into the Open ONI see
 [Batch Management documentation](docs/batch-management.md)
