@@ -28,27 +28,49 @@ command again. To avoid this we can prefix these long-running commands with the
 `nohup` utility and start them running in the background of the Bash shell by
 appending an `&` at the end of the command.
 
-This is most useful for the load_batch command which loads a batches data into
+This is most useful for `load_batch` which loads a batch's data into
 Open ONI as this command usually takes multiple hours to complete and it's not
 necessary to stay connected while this runs. For this, we take the normal
 command
 
 ```bash
-./manage load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt
+./manage.py load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt
 ```
 
 and modify as follows
 
 ```bash
-nohup ./manage load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt &
+nohup ./manage.py load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt &
 ```
-
-One may also wish to use this pattern with `rsync` and `bagit.py` commands which
-also run longer in case one expects to interrupt their network connection or
-sleep / shutdown their computer.
 
 We can also chain commands together by putting them in a bash script file
 and running it as `nohup load_multiple_batches.sh &`.
+
+## Log Files
+The use of `> (batch_name).txt` at the end ("redirection" in command line lingo)
+saves the output from the command normally printed to one's terminal in a text
+file. This can be done regardless of whether `nohup` is used, but without this
+the `nohup` utility will save the output in `nohup.out`. We prefer to use a file
+name that describes what action the text file is recording. This is often an
+abbreviated form of the batch name. For example we can use `manyissues`
+rather than the entire name `batch_nbu_manyissues_ver01`.
+
+We assume the default action of these files is a load_batch command, but
+one may also wish to use `nohup` with `rsync`, `bagit.py`, or `purge_batch`
+commands which also run longer in case one expects to interrupt their network
+connection by disconnect from the VPN or sleep / shutdown of their computer.
+For these other actions, please prepend the log file name with the action.
+For example a `purge_batch` log file could be named `purge_manyissues.txt`.
+
+If having to repeat an action during troubleshooting, one might also wish to
+date or number the log file so past action log files aren't overwritten,
+e.g. `purge_manyissues-20230615.txt` or `purge_manyissues-2.txt`. After logs
+are reviewed and any questions answered, please move them to a `log/` directory
+adjacent to where they were created:
+
+```bash
+mv *.txt log/
+```
 
 ## Transfer Batch Files to Dev Server
 
@@ -68,13 +90,11 @@ mkdir libr1901-newspapers
 
 sudo mount -t cifs -o username=(active-directory-name but no "@unl.edu") \
   //libr1901.unl.edu/newspapers/ libr1901-newspapers/
-# Example: username=gtunink2
-#      NOT username=gtunink2@unl.edu
+# Example:
+# sudo mount -t cifs -o username=gtunink2 //libr1901.unl.edu/newspapers/ libr1901-newspapers/
 
 # This will prompt you for your Active Directory password twice:
 # once for sudo, and once for connecting to libr1901
-
-# This transfer will take approximately an hour for most batches
 
 # Batches on libr1901 have a directory structure like:
 batch_nbu_(batch name)/
@@ -89,10 +109,13 @@ batch_nbu_(batch name)/
 # Note that omission and presence of trailing slashes here matters,
 # so type carefully and double-check before submitting the command!
 rsync -ahuX --del --info=progress2 --exclude=""*.tif"" libr1901-newspapers/batch_nbu_(batch_name) /var/local/newspapers/
+# Example:
+# rsync -ahuX --del --info=progress2 --exclude=""*.tif"" libr1901-newspapers/batch_nbu_manyissues /var/local/newspapers/
 ```
 
 ### Record Batch Storage Info
-Record under the Size columns on the Newspaper Batch Information spreadsheet
+Record under the Size columns on the [Newspaper Batch Information
+spreadsheet](https://uofnelincoln.sharepoint.com/:x:/r/sites/UNL-UniversityLibraries/DISC/cdrh/Shared%20Documents/CDRH%20Projects/Project%20Folders/Newspapers/Newspapers_General/Newspaper%20Batch%20Information.xlsx?d=w0f0beecd41ca47d48c581b4618d37c77&csf=1&web=1&e=bcK4Hb)
 
 ```bash
 # Size including tiffs on libr1901
@@ -123,6 +146,7 @@ cd /var/local/newspapers
 # Typically end with ver01 unless LoC corrections were made
 # Note in "ver" column of Newspaper Batch Information spreadsheet if not "ver01"
 mv batch_nbu_(batch_name) batch_nbu_(batch_name_ver##)
+# Example: mv batch_nbu_manyissues batch_nbu_manyissues_ver01
 
 # Set group-writeable, global-readable batch permissions
 # These commands may run for 10-15 minutes on the long end. Unfortunately there
@@ -168,6 +192,7 @@ This step moves files into a `data/` directory
 and CANNOT BE RERUN without moving them back.
 The batch directory should look like this afterwards:
 
+```
 batch_nbu_(batch name_ver##)/
 ┣━┳━ data/
 ┃ ┣━━━ (lccn)
@@ -179,6 +204,7 @@ batch_nbu_(batch name_ver##)/
 ┣━━━ bagit.txt
 ┣━━━ manifest-md5.txt
 ┗━━━ tagmanifest-md5.txt
+```
 
 ```bash
 bagit.py --quiet --md5 batch_nbu_(batch_name_ver##)
@@ -197,6 +223,9 @@ rm *.*
 # Move all files in the data/ directory to the current directory; remove data/
 mv data/* .
 rmdir data
+
+# Return to parent directory
+cd ..
 ```
 
 Now one may rerun the creation command above
@@ -209,9 +238,14 @@ cd /var/local/www/django/openoni
 # Load the Open ONI Python virtual environment
 . ENV/bin/activate
 
+# It's not necessary for our use, but one my unload the virtual environment
+# by later running the command `deactivate`
+
 # This command usually takes many hours to complete so we use nohup and run the
 # command in the background so we can disconnect SSH and it will still run
-nohup ./manage load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt &
+nohup ./manage.py load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt &
+# Example:
+# nohup ./manage.py load_batch /var/local/newspapers/batch_nbu_manyissues_ver01 > manyissues.txt &
 
 # One can print the end of the log file to ensure the command is progressing
 tail (batch_name).txt
@@ -220,8 +254,9 @@ tail (batch_name).txt
 # ingest process a little. Press Ctrl + C to quit following what's written.
 tail -f (batch_name).txt
 
-# After completion, review the log for errors etc
+# After completion, review the log for errors etc, move to log directory
 nano (batch_name).txt
+mv (batch_name).txt log/
 ```
 
 If an error occurred during batch ingest, ask a developer for help parsing the
@@ -233,7 +268,8 @@ America if an NDNP batch:
 - https://nebnewspapers.unl.edu/batches
 - https://chroniclingamerica.loc.gov/awardees/nbu/
 
-Record the issue and page counts in the Newspaper Batch Information spreadsheet
+Record the issue and page counts in the [Newspaper Batch Information
+spreadsheet](https://uofnelincoln.sharepoint.com/:x:/r/sites/UNL-UniversityLibraries/DISC/cdrh/Shared%20Documents/CDRH%20Projects/Project%20Folders/Newspapers/Newspapers_General/Newspaper%20Batch%20Information.xlsx?d=w0f0beecd41ca47d48c581b4618d37c77&csf=1&web=1&e=bcK4Hb)
 
 ### Word Coordinates Files Permissions
 Directories and files created during ingest process have permissions
@@ -259,8 +295,8 @@ cd /var/local/newspapers/
 
 # Transfer batch from dev server (~45min)
 rsync -ahuX --del --info=progress2 nebnewspapers-dev.unl.edu:/var/local/newspapers/batch_nbu_(batch_name_ver##) .
-
-cd /var/local/newspapers
+# Example:
+# rsync -ahuX --del --info=progress2 nebnewspapers-dev.unl.edu:/var/local/newspapers/batch_nbu_manyissues_ver01 .
 
 # Validate batch checksums and manifest
 # Initial fast validation; if validation errors occur, notify a developer
@@ -278,7 +314,8 @@ cd /var/local/www/django/openoni
 
 # This command usually takes many hours to complete so we use nohup and run the
 # command in the background so we can disconnect SSH and it will still run
-nohup ./manage load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt &
+nohup ./manage.py load_batch /var/local/newspapers/batch_nbu_(batch_name_ver##) > (batch_name).txt &
+# Example: nohup ./manage.py load_batch /var/local/newspapers/batch_nbu_manyissues_ver01 > manyissues.txt &
 
 # One can print the end of the log file to ensure the command is progressing
 tail (batch_name).txt
@@ -287,8 +324,9 @@ tail (batch_name).txt
 # ingest process a little. Press Ctrl + C to quit following what's written.
 tail -f (batch_name).txt
 
-# After completion, review the log for errors etc
+# After completion, review the log for errors etc, move to log directory
 nano (batch_name).txt
+mv (batch_name).txt log/
 ```
 
 ## Purge a Batch
@@ -300,12 +338,13 @@ cd /var/local/www/django/openoni
 # Load the Open ONI Python virtual environment
 . ENV/bin/activate
 
-./manage purge_batch (batch_name) > purge_(batch_name).txt
-# Example: ./manage purge_batch batch_nbu_keithsbear_ver02 > purge_keithsbear_ver02.txt
+./manage.py purge_batch (batch_name) > purge_(batch_name).txt
+# Example: ./manage.py purge_batch batch_nbu_manyissues_ver01 > purge_manyissues.txt
 
 # There is no progress output as the purge occurs, but we should review the log
 # after the command completes
 nano purge_(batch_name).txt
+mv purge_(batch_name).txt log/
 ```
 
 ## Miscellaneous Tasks
