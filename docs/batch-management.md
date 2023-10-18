@@ -86,6 +86,7 @@ Mount the network share from libr1901 to transfer files to the server
 ```bash
 # Make directory to use as mount point
 cd [~]
+# Only one time and can skip for future ingests
 mkdir libr1901-newspapers
 
 sudo mount -t cifs -o username=(active-directory-name but no "@unl.edu") \
@@ -96,12 +97,16 @@ sudo mount -t cifs -o username=(active-directory-name but no "@unl.edu") \
 # This will prompt you for your Active Directory password twice:
 # once for sudo, and once for connecting to libr1901
 
-# Batches on libr1901 have a directory structure like:
-batch_nbu_(batch name)/
-┣━━━ (lccn)
-┣━━━ ...
-┣━━━ batch.xml
-┗━━━ batch_1.xml
+# Batches on libr1901 should have a directory structure like:
+libr1901-newspapers/batch_nbu_(batch name)/
+├─── (lccn)
+│    └── (reel)
+├─── ...
+├─── batch.xml
+└─── batch_1.xml
+
+# View tree of top directories and files to confirm expected structure
+tree -L 2 libr1901-newspapers/batch_nbu_(batch name)/
 
 # This rsync command is resumable if interrupted and usually takes up to 45 min.
 # The % progress and time estimates shown are often optimistically inaccurate.
@@ -121,7 +126,7 @@ spreadsheet](https://uofnelincoln.sharepoint.com/:x:/r/sites/UNL-UniversityLibra
 # Size including tiffs on libr1901
 du -sh libr1901-newspapers/batch_nbu_(batch_name)
 
-# Size without tiffs (because the batch was moved over without them)
+# Size without tiffs (because the batch was rsynced over without them)
 du -sh /var/local/newspapers/batch_nbu_(batch_name)
 ```
 
@@ -148,11 +153,21 @@ cd /var/local/newspapers
 mv batch_nbu_(batch_name) batch_nbu_(batch_name_ver##)
 # Example: mv batch_nbu_manyissues batch_nbu_manyissues_ver01
 
+
 # Set group-writeable, global-readable batch permissions
 # These commands may run for 10-15 minutes on the long end. Unfortunately there
 # is no way to know its progress, so please be patient.
 chmod -R g+rwX batch_nbu_(batch_name_ver##)
 chmod -R o+rX batch_nbu_(batch_name_ver##)
+
+# Check permissions include group write permissions now
+tree -pL 2 batch_nbu_(batch_name_ver##)
+
+batch_nbu_(batch_name_ver##)/
+├── [-rwxrwxr-x]  batch_1.xml
+├── [-rwxrwxr-x]  batch.xml
+└── [drwxrwxr-x]  (lccn))
+    └── [drwxrwxr-x]  (reel)
 ```
 
 Create README.txt file with fields noted in example
@@ -184,35 +199,39 @@ loc: yes
 description: Corrected version received from LoC
 ```
 
-### Create Checksums and Manifest
-There should be no more editing of files after creating checksums and manifest
-unless errors are being corrected and new checksums and manifest are created.
-
-This step moves files into a `data/` directory
-and CANNOT BE RERUN without moving them back.
-The batch directory should look like this afterwards:
-
-```
-batch_nbu_(batch name_ver##)/
-┣━┳━ data/
-┃ ┣━━━ (lccn)
-┃ ┣━━━ ...
-┃ ┣━━━ batch.xml
-┃ ┣━━━ batch_1.xml
-┃ ┗━━━ README.txt
-┣━━━ bag-info.txt
-┣━━━ bagit.txt
-┣━━━ manifest-md5.txt
-┗━━━ tagmanifest-md5.txt
-```
+### Create Checksums and Manifests
+There should be no more editing of files after creating checksums and manifests
+unless ingest errors are being corrected. This step moves files into a `data/`
+directory and SHOULD NOT BE RERUN without moving them back out before new
+checksums and manifests are created.
 
 ```bash
 bagit.py --quiet --md5 batch_nbu_(batch_name_ver##)
 ```
 
-#### Reset Files to Recreate Checksums and Manifest
-If the checksums and manifest creation is interrupted or errors need corrected
-afterwards, we must delete them and move files out of the `data/` directory
+The batch directory should look like this afterwards:
+
+```
+batch_nbu_(batch_name_ver##)/
+├── bag-info.txt
+├── bagit.txt
+├── data
+│   ├── batch_1.xml
+│   ├── batch.xml
+│   ├── README.txt
+│   └── (lccn))
+├── manifest-md5.txt
+└── tagmanifest-md5.txt
+```
+
+```bash
+tree -L 2 batch_nbu_(batch_name_ver##)
+```
+
+#### Reset Files to Recreate Checksums and Manifests
+**Only if** the checksums and manifest creation is **interrupted** or **errors
+need corrected after a failed ingest**, we must delete them and move files out
+of the `data/` directory
 
 ```bash
 cd /var/local/newspapers/batch_nbu_(batch_name_ver##)
@@ -228,7 +247,8 @@ rmdir data
 cd ..
 ```
 
-Now one may rerun the creation command above
+Return to [Create Checksums and Manifests](#create-checksums-and-manifests) above
+to recreate
 
 ## Dev Server Ingest
 
@@ -260,7 +280,9 @@ mv (batch_name).txt log/
 ```
 
 If an error occurred during batch ingest, ask a developer for help parsing the
-log file.
+log file. We will likely need to edit files to fix errors and then follow steps
+in [Reset Files to Recreate Checksums and
+Manifests](#reset-files-to-recreate-checksums-and-manifests).
 
 After batch ingest completes, compare the batch info in Open ONI and Chronicling
 America if an NDNP batch:
