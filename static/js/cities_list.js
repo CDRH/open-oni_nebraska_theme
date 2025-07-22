@@ -7,6 +7,14 @@ var cities = [
     }
   },
   {
+    "name": "Beatrice",
+    "latlong": [40.26, -96.74],
+    "papers": {
+      "The Beatrice Daily Express": "sn84020107",
+      "The Woman's Tribune": "sn85038008"
+    }
+  },
+  {
     "name": "Bellevue City",
     "latlong": [41.16, -95.93],
     "papers": {
@@ -90,6 +98,20 @@ var cities = [
     }
   },
   {
+    "name": "Hartington",
+    "latlong": [42.62, -97.26],
+    "papers": {
+      "Cedar County Wächter": "sn2017270202"
+    }
+  },
+  {
+    "name": "Hastings",
+    "latlong": [40.59, -98.39],
+    "papers": {
+      "The Powder Keg": "2023271000"
+    }
+  },
+  {
     "name": "Hemingford",
     "latlong": [42.32, -103.07],
     "papers": {
@@ -168,6 +190,8 @@ var cities = [
     "name": "Omaha",
     "latlong": [41.25, -96.0],
     "papers": {
+      "The American Citizen": "sn81002003",
+      "Gwiazda Zachodu": "sn83045201",
       "Omaha Daily Bee": "sn99021999",
       "Omaha Morning Bee": "sn84024326",
       "Pokrok Zàpadu": "sn83045348"
