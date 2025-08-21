@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><record xmlns="http://www.loc.gov/MARC21/slim" xmlns:zs="http://docs.oasis-open.org/ns/search-ws/sruResponse">
+  <leader>02310cas a2200529 a 4500</leader>
+  <controlfield tag="001">16457802</controlfield>
+  <controlfield tag="005">20250607040616.8</controlfield>
+  <controlfield tag="008">091215d1904191unbuwr ne      0   a0eng  </controlfield>
+  <datafield ind1=" " ind2=" " tag="035">
+    <subfield code="a">16457802</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="906">
+    <subfield code="a">7</subfield>
+    <subfield code="b">cbc</subfield>
+    <subfield code="c">serials</subfield>
+    <subfield code="d">2</subfield>
+    <subfield code="e">ncip</subfield>
+    <subfield code="f">19</subfield>
+    <subfield code="g">n-oclcserc</subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="925">
+    <subfield code="a">Acquire</subfield>
+    <subfield code="b">1 shelf copy</subfield>
+    <subfield code="x">policy default 2010-09-14</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="955">
+    <subfield code="k">xf14 2010-10-04 telework;</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="955">
+    <subfield code="a">LCAP batch update 2025-06-01-04:00: LCAPM-644, LCAPM-893</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="010">
+    <subfield code="a">sn 94056446 </subfield>
+    <subfield code="z">  2010270506</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="022">
+    <subfield code="a">2157-8176</subfield>
+    <subfield code="2">1</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="035">
+    <subfield code="a">(OCoLC)489049352</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="040">
+    <subfield code="a">DLC</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="c">DLC</subfield>
+    <subfield code="d">LDL</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCF</subfield>
+    <subfield code="d">OCLCL</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="042">
+    <subfield code="a">pcc</subfield>
+    <subfield code="a">nsdp</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="043">
+    <subfield code="a">n-us-nb</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="0" tag="050">
+    <subfield code="a">Newspaper</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="4" tag="222">
+    <subfield code="a">The Falls City tribune</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="4" tag="245">
+    <subfield code="a">The Falls City tribune.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="260">
+    <subfield code="a">Falls City, Neb. :</subfield>
+    <subfield code="b">Ross &amp; Ray,</subfield>
+    <subfield code="c">1904-</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="300">
+    <subfield code="a">v.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="310">
+    <subfield code="a">Weekly</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="336">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="337">
+    <subfield code="a">unmediated</subfield>
+    <subfield code="b">n</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="338">
+    <subfield code="a">volume</subfield>
+    <subfield code="b">nc</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="362">
+    <subfield code="a">Vol. 1, no. 1 (Jan. 8, 1903 [i.e. 1904])-</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="515">
+    <subfield code="a">Issues for Jan. 6, 1905-May 12, 1905 also called whole no. 53-71.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="515">
+    <subfield code="a">Issues for May 19, 1905-Jan. 17, 1908 called v. 2, whole no. 72-v. 4, whole no. 208.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="530">
+    <subfield code="a">Also available on microfilm.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="530">
+    <subfield code="a">Archived issues are available in digital format as part of the Library of Congress Chronicling America online collection.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="580">
+    <subfield code="a">Absorbed: Humboldt enterprise, 1905; Rulo record; Crocker's educational journal; Dawson outlook, 1910.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="0" tag="651">
+    <subfield code="a">Falls City (Neb.)</subfield>
+    <subfield code="v">Newspapers.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="0" tag="651">
+    <subfield code="a">Richardson County (Neb.)</subfield>
+    <subfield code="v">Newspapers.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="651">
+    <subfield code="a">Nebraska</subfield>
+    <subfield code="z">Falls City.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01221280</subfield>
+    <subfield code="1">https://id.oclc.org/worldcat/entity/E39PBJghtkm6kVb3xfVkhwb8G3</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="651">
+    <subfield code="a">Nebraska</subfield>
+    <subfield code="z">Richardson County.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01212383</subfield>
+    <subfield code="1">https://id.oclc.org/worldcat/entity/E39PBJkdkTjKKCfpqmWKB9mfMP</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="655">
+    <subfield code="a">Newspapers.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01423814</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="655">
+    <subfield code="a">Newspapers.</subfield>
+    <subfield code="2">lcgft</subfield>
+    <subfield code="0">https://id.loc.gov/authorities/genreForms/gf2014026132</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="752">
+    <subfield code="a">United States</subfield>
+    <subfield code="b">Nebraska</subfield>
+    <subfield code="c">Richardson</subfield>
+    <subfield code="d">Falls City.</subfield>
+  </datafield>
+  <datafield ind1="1" ind2="5" tag="780">
+    <subfield code="t">Humboldt enterprise</subfield>
+    <subfield code="w">(DLC)sn 94056450</subfield>
+  </datafield>
+  <datafield ind1="1" ind2="5" tag="780">
+    <subfield code="t">Rulo record</subfield>
+  </datafield>
+  <datafield ind1="1" ind2="5" tag="780">
+    <subfield code="t">Crocker's educational journal</subfield>
+  </datafield>
+  <datafield ind1="1" ind2="5" tag="780">
+    <subfield code="t">Dawson outlook</subfield>
+  </datafield>
+  <datafield ind1="4" ind2="1" tag="859">
+    <subfield code="u">http://www.loc.gov/chroniclingamerica/lccn/sn94056446/issues</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="985">
+    <subfield code="a">serpull/chronam</subfield>
+    <subfield code="e">ndnp</subfield>
+  </datafield>
+</record>
