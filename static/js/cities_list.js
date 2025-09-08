@@ -80,6 +80,17 @@ var cities = [
     }
   },
   {
+    "name": "Gordon",
+    "latlong": [42.80, -102.20],
+    "papers": {
+      "The Gordon Journal": "2023271001",
+      "Sheridan County Democrat and Gordon Journal": "2023271002",
+      "The Gordon Journal": "2023271003",
+      "The Gordon Semi-Weekly Journal": "2023271004",
+      "The Gordon Journal": "2023271005"
+    }
+  },
+  {
     "name": "Grand Island",
     "latlong": [40.93, -98.34],
     "papers": {
@@ -152,7 +163,8 @@ var cities = [
     "name": "Nebraska City",
     "latlong": [40.68, -95.86],
     "papers": {
-      "The Conservative": "sn96080161"
+      "The Conservative": "sn96080161",
+      "Nebraska Staats-Zeitung": "sn87067031"
     }
   },
   {
@@ -207,6 +219,13 @@ var cities = [
       "Plattsmouth Weekly Herald": "sn95069727",
       "Plattsmouth Weekly Journal": "sn95069722",
       "Semi-Weekly News-Herald": "sn95069729"
+    }
+  },
+    {
+    "name": "South Omaha",
+    "latlong": [41.21, -95.96],
+    "papers": {
+      "South Omaha Stockman": "2024271441"
     }
   },
   {
