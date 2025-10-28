@@ -221,7 +221,7 @@ var cities = [
       "Semi-Weekly News-Herald": "sn95069729"
     }
   },
-    {
+  {
     "name": "South Omaha",
     "latlong": [41.21, -95.96],
     "papers": {
