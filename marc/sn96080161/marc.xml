@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><record xmlns="http://www.loc.gov/MARC21/slim" xmlns:zs="http://docs.oasis-open.org/ns/search-ws/sruResponse">
+  <leader>02678cas a2200625 a 4500</leader>
+  <controlfield tag="001">11133610</controlfield>
+  <controlfield tag="005">20211230065653.0</controlfield>
+  <controlfield tag="008">790315d18981902nbuwr ne      0   a0eng  </controlfield>
+  <datafield ind1=" " ind2=" " tag="010">
+    <subfield code="a">sn 96080161</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="022">
+    <subfield code="a">2151-5506</subfield>
+    <subfield code="l">2151-5506</subfield>
+    <subfield code="2">1</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="035">
+    <subfield code="a">(OCoLC)ocm04747204 </subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="040">
+    <subfield code="a">DLC</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="c">MUL</subfield>
+    <subfield code="d">NPT</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCG</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCF</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">OCL</subfield>
+    <subfield code="d">JDP</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCO</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="042">
+    <subfield code="a">pcc</subfield>
+    <subfield code="a">nsdp</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="043">
+    <subfield code="a">n-us---</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="0" tag="050">
+    <subfield code="a">Newspaper</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="0" tag="050">
+    <subfield code="a">H1</subfield>
+    <subfield code="b">.C8</subfield>
+  </datafield>
+  <datafield ind1="1" ind2="0" tag="082">
+    <subfield code="a">300.5</subfield>
+    <subfield code="2">14</subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="130">
+    <subfield code="a">Conservative (Nebraska City, Neb.)</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="4" tag="222">
+    <subfield code="a">The Conservative</subfield>
+    <subfield code="b">(Nebraska City, Neb.)</subfield>
+  </datafield>
+  <datafield ind1="1" ind2="4" tag="245">
+    <subfield code="a">The Conservative.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="260">
+    <subfield code="a">Nebraska City, Neb. :</subfield>
+    <subfield code="b">Morton Print. Co.,</subfield>
+    <subfield code="c">[1898-1902]</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="300">
+    <subfield code="a">4 volumes :</subfield>
+    <subfield code="b">illustrations ;</subfield>
+    <subfield code="c">32 cm</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="310">
+    <subfield code="a">Weekly</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="336">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="337">
+    <subfield code="a">unmediated</subfield>
+    <subfield code="b">n</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="338">
+    <subfield code="a">volume</subfield>
+    <subfield code="b">nc</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="362">
+    <subfield code="a">Vol. 1, no. 1 (July 14, 1898)-v. 4, no. 47 (May 29, 1902).</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="500">
+    <subfield code="a">Title from caption.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="500">
+    <subfield code="a">Edited by J. Sterling Morton.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="520">
+    <subfield code="a">A journal devoted to the discussion of political, economic, and sociological questions.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="530">
+    <subfield code="a">Also issued on microfilm by the Nebraska State Historical Society.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="530">
+    <subfield code="a">Archived issues are available in digital format as part of the Library of Congress Chronicling America online collection.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="0" tag="650">
+    <subfield code="a">Social sciences</subfield>
+    <subfield code="v">Periodicals.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="0" tag="651">
+    <subfield code="a">United States</subfield>
+    <subfield code="x">Politics and government</subfield>
+    <subfield code="v">Periodicals.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="0" tag="651">
+    <subfield code="a">Nebraska City (Neb.)</subfield>
+    <subfield code="v">Newspapers.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="650">
+    <subfield code="a">Politics and government</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01919741</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="650">
+    <subfield code="a">Social sciences.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01122877</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="651">
+    <subfield code="a">Nebraska</subfield>
+    <subfield code="z">Nebraska City.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01218603</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="651">
+    <subfield code="a">United States.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01204155</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="655">
+    <subfield code="a">Newspapers.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01423814</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="655">
+    <subfield code="a">Periodicals.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01411641</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="655">
+    <subfield code="a">Newspapers.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="655">
+    <subfield code="a">Periodicals.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="700">
+    <subfield code="a">Morton, J. Sterling</subfield>
+    <subfield code="q">(Julius Sterling),</subfield>
+    <subfield code="d">1832-1902.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="752">
+    <subfield code="a">United States</subfield>
+    <subfield code="b">Nebraska</subfield>
+    <subfield code="c">Otoe</subfield>
+    <subfield code="d">Nebraska City.</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="8" tag="776">
+    <subfield code="i">Online version:</subfield>
+    <subfield code="t">Conservative (Nebraska City, Neb.)</subfield>
+    <subfield code="w">(OCoLC)565938629</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="0" tag="785">
+    <subfield code="t">Nebraska City weekly</subfield>
+    <subfield code="w">(DLC)sn 86063438</subfield>
+    <subfield code="w">(OCoLC)13379261</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="850">
+    <subfield code="a">DLC</subfield>
+  </datafield>
+  <datafield ind1="4" ind2="1" tag="859">
+    <subfield code="u">http://www.loc.gov/chroniclingamerica/lccn/02027093/issues</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="890">
+    <subfield code="a">Conservative.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="906">
+    <subfield code="a">7</subfield>
+    <subfield code="b">cbc</subfield>
+    <subfield code="c">serials</subfield>
+    <subfield code="d">2</subfield>
+    <subfield code="e">ncip</subfield>
+    <subfield code="f">20</subfield>
+    <subfield code="g">n-oclcserc</subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="925">
+    <subfield code="a">Acquire</subfield>
+    <subfield code="b">1 shelf copy</subfield>
+    <subfield code="x">policy default 2009-09-28</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="955">
+    <subfield code="a">ae01 2009-09-28</subfield>
+    <subfield code="i">ae01 2009-09-28</subfield>
+    <subfield code="k">xf14 2009-10-26 telework to GenColl</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="985">
+    <subfield code="a">serpull/chronam</subfield>
+    <subfield code="e">ndnp</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="991">
+    <subfield code="b">c-GenColl</subfield>
+    <subfield code="h">H1</subfield>
+    <subfield code="i">.C8</subfield>
+    <subfield code="w">SERIALS</subfield>
+  </datafield>
+</record>

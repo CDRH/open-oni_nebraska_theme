@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><record xmlns="http://www.loc.gov/MARC21/slim" xmlns:zs="http://docs.oasis-open.org/ns/search-ws/sruResponse">
+  <leader>02664cas a22005777a 4500</leader>
+  <controlfield tag="001">11279755</controlfield>
+  <controlfield tag="005">20250701132729.4</controlfield>
+  <controlfield tag="008">840201d18841924nbudn ne      0   a0eng  </controlfield>
+  <datafield ind1=" " ind2=" " tag="010">
+    <subfield code="a">sn 84020107 </subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="022">
+    <subfield code="a">2997-8920</subfield>
+    <subfield code="2">1</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="029">
+    <subfield code="a">AU@</subfield>
+    <subfield code="b">000020409564</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="035">
+    <subfield code="a">(OCoLC)10361670</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="040">
+    <subfield code="a">DLC</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="c">DLC</subfield>
+    <subfield code="d">NVG</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCF</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCL</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCL</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="042">
+    <subfield code="a">msc</subfield>
+    <subfield code="a">nsdp</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="043">
+    <subfield code="a">n-us-nb</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="0" tag="050">
+    <subfield code="a">Newspaper</subfield>
+  </datafield>
+  <datafield ind1="1" ind2="0" tag="082">
+    <subfield code="a">071.3</subfield>
+    <subfield code="2">23</subfield>
+    <subfield code="1">https://id.oclc.org/worldcat/ddc/E3MJ87dMTw4ByGq4RJYrdRdTc3</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="4" tag="222">
+    <subfield code="a">The Beatrice daily express</subfield>
+    <subfield code="b">(Print)</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="4" tag="245">
+    <subfield code="a">The Beatrice daily express.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="260">
+    <subfield code="a">Beatrice, Neb. :</subfield>
+    <subfield code="b">M.A. Brown,</subfield>
+    <subfield code="c">-1924.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="300">
+    <subfield code="a">volumes :</subfield>
+    <subfield code="b">illustrations ;</subfield>
+    <subfield code="c">69 cm</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="310">
+    <subfield code="a">Daily (except Sun.)</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="336">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="337">
+    <subfield code="a">unmediated</subfield>
+    <subfield code="b">n</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="338">
+    <subfield code="a">volume</subfield>
+    <subfield code="b">nc</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="362">
+    <subfield code="a">Began in 1884.</subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="362">
+    <subfield code="a">-v. 39, no. 23 (Apr. 26, 1924).</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="500">
+    <subfield code="a">"Republican." Cf. Ayer, 1885.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="530">
+    <subfield code="a">Archived issues are available in digital format from the Library of Congress Chronicling America online collection.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="580">
+    <subfield code="a">Other eds.: Beatrice weekly express, 1884-1901, Beatrice semi-weekly express, 1901-1903, Semi-weekly express (Beatrice, Neb.), 1903-1906, Weekly express (Beatrice, Neb.), 1906-1909, Semi-weekly express (Beatrice, Neb. : 1909), 1909-1911, and: Beatrice weekly express (Beatrice, Neb. : 1911), 1911-1912.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="588">
+    <subfield code="a">Description based on: 1st year, no. 253 (Nov. 11, 1884).</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="0" tag="651">
+    <subfield code="a">Gage County (Neb.)</subfield>
+    <subfield code="v">Newspapers.</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="651">
+    <subfield code="a">Nebraska</subfield>
+    <subfield code="z">Gage County.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01204083</subfield>
+    <subfield code="1">https://id.oclc.org/worldcat/entity/E39PBJkp4TqhpR97BrW3t7D8YP</subfield>
+  </datafield>
+  <datafield ind1=" " ind2="7" tag="655">
+    <subfield code="a">Newspapers.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01423814</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="752">
+    <subfield code="a">United States</subfield>
+    <subfield code="b">Nebraska</subfield>
+    <subfield code="c">Gage</subfield>
+    <subfield code="d">Beatrice.</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="775">
+    <subfield code="t">Beatrice weekly express</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="775">
+    <subfield code="t">Beatrice semi-weekly express</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="775">
+    <subfield code="t">Semi-weekly express (Beatrice, Neb.)</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="775">
+    <subfield code="t">Weekly express (Beatrice, Neb.)</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="775">
+    <subfield code="t">Semi-weekly express (Beatrice, Neb. : 1909)</subfield>
+  </datafield>
+  <datafield ind1="1" ind2=" " tag="775">
+    <subfield code="t">Beatrice weekly express (Beatrice, Neb. : 1911)</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="8" tag="776">
+    <subfield code="i">Online version:</subfield>
+    <subfield code="t">Beatrice daily express</subfield>
+    <subfield code="x">2997-8939</subfield>
+    <subfield code="w">(DLC)  2024271114</subfield>
+    <subfield code="w">(OCoLC)1435957185</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="5" tag="780">
+    <subfield code="t">Beatrice weekly express (Beatrice, Neb. : 1911)</subfield>
+  </datafield>
+  <datafield ind1="0" ind2="4" tag="785">
+    <subfield code="t">Beatrice daily sun</subfield>
+  </datafield>
+  <datafield ind1="4" ind2="1" tag="859">
+    <subfield code="u">https://hdl.loc.gov/loc.sgp/chronam.sn84020107</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="906">
+    <subfield code="a">7</subfield>
+    <subfield code="b">cbc</subfield>
+    <subfield code="c">serials</subfield>
+    <subfield code="d">2</subfield>
+    <subfield code="e">ncip</subfield>
+    <subfield code="f">19</subfield>
+    <subfield code="g">n-oclcserc</subfield>
+  </datafield>
+  <datafield ind1="0" ind2=" " tag="925">
+    <subfield code="a">Acquire</subfield>
+    <subfield code="b">1 shelf copy</subfield>
+    <subfield code="x">policy default</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="955">
+    <subfield code="k">sr02 2024-05-29</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="955">
+    <subfield code="a">LCAP batch update 2025-06-01-04:00: LCAPM-893</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="985">
+    <subfield code="a">serpull/chronam</subfield>
+    <subfield code="e">ndnp</subfield>
+  </datafield>
+  <datafield ind1=" " ind2=" " tag="991">
+    <subfield code="b">c-Ser</subfield>
+    <subfield code="h">Newspaper 8663-X</subfield>
+    <subfield code="w">SERIALS</subfield>
+  </datafield>
+</record>
