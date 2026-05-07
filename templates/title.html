@@ -69,16 +69,16 @@
               {% for place in title.places.all %}
                 <li>
                   {{ place.city }}, 
-                  {% ifnotequal place.county None %}
+                  {% if place.county != None %}
                   {{ place.county }}, 
-                  {% endifnotequal %}
+                  {% endif %}
                   {{ place.state }}
                 </li>
                 <li>View more titles from this: 
                   <a href="{% url 'openoni_city' place.state|pack_url place.county|pack_url place.city|pack_url %}">City</a>
-                  {% ifnotequal place.county None %} | 
+                  {% if place.county != None %} | 
                   <a href="{% url 'openoni_county' place.state|pack_url place.county|pack_url %}">County</a><!--,-->
-                  {% endifnotequal %}
+                  {% endif %}
                 </li>
               {% endfor %}
             </ul>
