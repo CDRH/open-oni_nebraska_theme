@@ -51,6 +51,9 @@ git checkout dev
 
 ### SELinux Permissions
 ```bash
+# Newspapers data needs to be readable by Apache for PDFs, JP2s, and OCR XML
+semanage fcontext -a -t httpd_sys_content_t "/var/local/newspapers(/.*)?"
+
 # Python executables need httpd-executable SELinux context
 semanage fcontext -a -t httpd_sys_script_exec_t "/var/local/www/django/openoni/ENV/lib/python2.7/site-packages/.+\.so"
 
