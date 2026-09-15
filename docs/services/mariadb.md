@@ -1,33 +1,29 @@
 # MariaDB
 
-**Contents**
-
-- [Install](#install)
-- [Access Control](#access-control)
-- [Backups](#backups)
-
-
 ## Install
 
-Install documentation is located in the private CDRH-General repo
+Install documentation is located in the private servers repo
 
 Follow the instructions on this wiki page:
-- [MariaDB](https://github.com/CDRH/CDRH-General/wiki/MariaDB)
+- [MariaDB](https://github.com/CDRH/servers/blob/el9/docs/MariaDB.md)
 
 Django also requires development libraries from MariaDB
 
-`yum install mariadb-devel`
-
+`dnf install mariadb-devel`
 
 ## Access Control
 
-Create schema `openoni`
+`sudo mysql`:
 
-Add `openoni` user only connecting from `localhost`
+```sql
+CREATE DATABASE openoni;
 
-Grant `openoni` user all privileges except `GRANT OPTION`
-on `openoni%` schema(s)
+CREATE USER 'openoni'@'localhost' IDENTIFIED BY 'password';
 
+GRANT ALL PRIVILEGES ON `openoni`.* TO 'openoni'@'localhost';
+
+SHOW GRANTS FOR 'openoni'@'localhost';
+```
 
 ## Backups
 Our backup script is located in the private servers repo

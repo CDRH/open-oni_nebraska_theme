@@ -1,35 +1,43 @@
 # Open ONI
 
-**Contents**
-
-- [Dependencies](#dependencies)
-- [Install](#install)
-    - [Clone Open ONI](#clone-openoni)
-    - [SELinux Permissions](#selinux-permissions)
-    - [File-based Cache Directory](#file-based-cache-directory)
-    - [Python Virtual Environment](#python-virtual-environment)
-    - [Migrate Database](#migrate-database)
-    - [Newspaper Data Symlink](#newspaper-data-symlink)
-- [Configure](#configure)
-    - [Solr Schema](#solr-schema)
-    - [Django](#django)
-        - [Local Settings](#local-settings)
-            - [Theme and Plugins](#theme-and-plugins)
-            - [Title and Project Name](#title-and-project-name)
-        - [Logging](#logging)
-        - [URLs](#urls)
-        - [WSGI Path](#wsgi-path)
-- [Compile Static Assets](#compile-static-assets)
-- [Load Batches](#load-batches)
-
-
 ## Dependencies
 Install [required services](/docs/services/)
 
-`yum install python-virtualenv`
-
+`dnf install gcc python3.14-devel`
 
 ## Install
+
+Install cifs software to enable mounting network file shares
+
+```bash
+dnf install cifs-utils
+```
+
+```bash
+# Create nebnews group
+groupadd nebnews
+
+# Add users to nebnews group
+vim /etc/group
+```
+
+Add sudoers drop-in config to allow `nebnews` group members to mount
+cifs / Samba file shares
+
+`sudo vim /etc/sudoers.d/50-nebnews`
+
+```
+# nebnews group members may sudo mount for cifs / Samba file shares
+%nebnews ALL = /bin/mount, /bin/umount
+```
+
+Set `nebnews` group as owner of necessary directories
+
+```bash
+chgrp -R nebnews /var/local/newspapers
+chgrp -R nebnews /var/local/www/django/openoni/log
+chgrp -R nebnews /var/local/www/django/openoni/data/word_coordinates
+```
 
 ### Clone Open ONI
 
@@ -41,12 +49,11 @@ cd /var/local/www/django
 ```
 
 Run these commands as a regular user rather than root
-```
+
+```bash
 git clone git@github.com:open-oni/open-oni.git openoni
 cd openoni
-
-# We're currently deploying from dev branch for Django 1.11 LTS
-git checkout dev
+git checkout main
 ```
 
 ### SELinux Permissions
@@ -55,13 +62,35 @@ git checkout dev
 semanage fcontext -a -t httpd_sys_content_t "/var/local/newspapers(/.*)?"
 
 # Python executables need httpd-executable SELinux context
-semanage fcontext -a -t httpd_sys_script_exec_t "/var/local/www/django/openoni/ENV/lib/python2.7/site-packages/.+\.so"
+semanage fcontext -a -t httpd_sys_script_exec_t "/var/local/www/django/openoni/ENV/lib/python3.14/site-packages/.+\.so"
 
 # Static asset path needs Apache write access
 mkdir /var/local/www/django/openoni/static/compiled
 semanage fcontext -a -t httpd_sys_rw_content_t "/var/local/www/django/openoni/static/compiled(/.*)?"
 
-restorecon -F -R /var/local/www/django/openoni/
+# Django log files
+semanage fcontext -a -t httpd_sys_rw_content_t "/var/local/www/django/openoni/log(/.*)?"
+touch log/debug.log
+chown apache log/debug.log
+
+# Examine non-standard SELinux file contexts
+ll -Z static
+ll -Z log
+ll -Z ENV/lib/python3.9/site-packages/**/*.so
+
+# IF initial setup before batch files have been copied and ingested
+restorecon -F -R /var/local/www/django/openoni
+
+# IF batch files already copied and ingested, we want to ignore them for speed
+# Run these commands to set SELinux context on all files but exclude recursing
+# into data/batches/ and data/word_coordinates/ directories
+cd /var/local/www/django/openoni
+
+shopt -s extglob
+restorecon -F -R !('data')
+restorecon -F data
+restorecon -F data/*
+shopt -u extglob
 ```
 
 ### File-based Cache Directory
@@ -69,7 +98,7 @@ This is only used if the production settings file is enabled in Open ONI's `sett
 
 ```bash
 mkdir -p /var/tmp/django_cache
-chown apache /var/tmp/django_cache
+chown apache:nebnews /var/tmp/django_cache
 chmod 2770 /var/tmp/django_cache
 ```
 
@@ -80,7 +109,7 @@ Run these commands as a regular user rather than root
 cd /var/local/www/django/openoni
 
 # Create and activate Python virtual environment
-virtualenv ENV
+python3.14 -m venv ENV
 source ENV/bin/activate
 
 # Update pip and setuptools
@@ -88,8 +117,17 @@ pip install -U pip
 pip install -U setuptools
 
 # Install / update Open ONI dependencies
-pip install -U -r requirements.txt
+pip install -r requirements.lock
 ```
+
+### Config files
+
+```bash
+cd onisite
+cp urls_example.py urls.py
+cp settings_local_example.py settings_local.py
+```
+
 
 ### Migrate Database
 Run these commands as a regular user rather than root
@@ -118,11 +156,9 @@ ln -s /var/local/newspapers data/batches
 
 ### Solr Schema
 ```bash
-cp /var/local/www/django/openoni/docker/solr/schema.xml /var/solr/data/openoni/conf/schema.xml
-cp /var/local/www/django/openoni/docker/solr/solrconfig.xml /var/solr/data/openoni/conf/solrconfig.xml
-chown -R solr.solr /var/solr/data/openoni
-
-service solr restart
+cd /var/local/www/django/openoni
+source ENV/bin/activate
+./manage.py setup_index
 ```
 
 ### Django
@@ -182,6 +218,8 @@ Create symlink at `/var/log/openoni` to `/var/local/www/django/openoni/log`
 
 ```bash
 ln -s /var/local/www/django/openoni/log /var/log/openoni
+mkdir /var/local/www/django/openoni/log/reviewed
+chown -R apache:nebnews /var/local/www/django/openoni/log
 ```
 
 #### URLs

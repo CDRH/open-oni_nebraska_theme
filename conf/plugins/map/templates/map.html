@@ -13,14 +13,12 @@
 
 {% block javascript %}
   {{ block.super }}
-  {# Leaflet and Stamen libraries; City coordinates & links list #}
+  {# Leaflet library; City coordinates & links list #}
   <script src="{% static 'vendor/leaflet/leaflet.js' %}"></script>
-  <script src="{% static 'vendor/stamen/stamen.js' %}"></script>
   <script src="{% static 'js/cities_list.js' %}"></script>
   {% block javascript_map_settings %}
     <script>
       // map settings
-      var stamenType = "toner";
       var startLat = 41.5;
       var startLong = -99.316;
       var startZoom = 7;

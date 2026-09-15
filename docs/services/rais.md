@@ -1,124 +1,130 @@
 # RAIS
 
-**Contents**
-
-- [Install](#install)
-    - [Dependencies](#dependencies)
-    - [Clone from GitHub](#clone-from-github)
-    - [Configure Permissions](#configure-permissions)
-    - [Configure Docker Compose](#configure-docker-compose)
-        - [Override File](#override-file)
-    - [Add Apache Config](#add-apache-config)
-
-
 ## Install
 
 ### Dependencies
 
 ```bash
-yum install docker docker-compose
-systemctl enable docker
-systemctl start docker
+dnf install gcc openjpeg2-devel pkgconf-pkg-config
+```
+
+### Install go
+
+As regular user
+
+```bash
+cd /var/local
+wget https://go.dev/dl/go1.24.2.linux-amd64.tar.gz
+tar -C /usr/local/share -xzf go1.24.2.linux-amd64.tar.gz
+
+ln -s /usr/local/share/go/bin/* /usr/local/bin/
+ln -s /usr/local/share/go/bin/* /usr/local/sbin/
+
+# Set gopath as `/var/local/go` due to more storage required for packages etc
+echo 'export GOPATH=/var/local/go' > /etc/profile.d/z-gopath.sh
+mkdir /var/local/go
+chgrp webadmins /var/local/go
+chmod 2775 /var/local/go
 ```
 
 ### Clone from GitHub
 
 ```bash
-mkdir /var/local/docker
-chmod 750 /var/local/docker
-cd /var/local/docker
-git clone https://github.com/uoregon-libraries/rais-image-server rais
+git clone https://github.com/uoregon-libraries/rais-image-server /usr/local/share/rais
 
-cd rais
+cd /usr/local/share/rais
 
-# Switch to master branch
-git checkout master
+# Checkout latest release tag
+git checkout v4.2.4
+
+make rais-server
 ```
 
-### Configure Permissions
+### Configuration File
+
 ```bash
-# Set SELinux context on files to be mounted in container
-semanage fcontext -a -t container_file_t "/var/local/docker/rais/(?:cap-max|rais-example)\.toml"
-restorecon -F -R /var/local/docker/rais
-
-semanage fcontext -a -t container_file_t "/var/local/newspapers(/.*)?"
-restorecon -F -R /var/local/newspapers
-
-# Set file permissions for newspaper files
-cd /var/local/newspapers
-chmod -R g+rwX (batch_name or * for all)
-chmod -R o+rX (batch_name or * for all)
-find . -type d -exec chmod g+s {} \;
-find . -type f -exec chmod -x {} \;
+cp rais-example.toml /etc/rais.toml
+vim /etc/rais.toml
 ```
 
-### Configure Docker Compose
-Define custom docker-compose config file
+```toml
+LogLevel = "WARN"
 
-`vim docker-compose.override.yml`:
-```yml
-version: "3.4"
+TilePath = "/var/local/newspapers"
 
-services:
-  rais:
-    image: uolibraries/rais
-    environment:
-      - RAIS_ADDRESS
-      - RAIS_LOGLEVEL
-      - RAIS_TILEPATH
-      - RAIS_IIIFURL
-      - RAIS_INFOCACHELEN
-      - RAIS_TILECACHELEN
-      - RAIS_IMAGEMAXAREA
-      - RAIS_IMAGEMAXWIDTH
-      - RAIS_IMAGEMAXHEIGHT
-      - RAIS_PLUGINS
-    volumes:
-      - /var/local/newspapers:/var/local/images:ro
-      - ./rais-example.toml:/etc/rais.toml:ro
-      - ./cap-max.toml:/etc/rais-capabilities.toml:ro
-    ports:
-      - 12415:12415
-    restart: always
+IIIFWebPath = "/rais"
+
+IIIFBaseURL = "https://(ServerName)"
+
+CapabilitiesFile = "/usr/local/share/rais/cap-max.toml"
 ```
 
-Define environment file for docker-compose use which overrides defaults
-from `rais-example.toml` mounted as `/etc/rais.toml`. Default values from this
-config file are commented for reference.
+### Systemd Service
 
-`vim .env`:
 ```bash
-#RAIS_ADDRESS=:12415
-RAIS_LOGLEVEL=INFO
-#RAIS_TILEPATH=/var/local/images
-RAIS_IIIFURL=https://nebnewspapers(-env).unl.edu/rais
-#RAIS_INFOCACHELEN=10000
-#RAIS_TILECACHELEN=0
-#RAIS_IMAGEMAXAREA=104857600
-#RAIS_IMAGEMAXWIDTH=20480
-#RAIS_IMAGEMAXHEIGHT=20480
-# Must match at least one plugin,
-# but without other ENV var datadog plugin stays disabled
-RAIS_PLUGINS=datadog.so
+# Create user and group for rais
+useradd -M rais
 ```
 
-Start RAIS docker container
+`vim /etc/systemd/system/rais.service`
 
-`docker-compose -f docker-compose.override.yml up -d`
+```ini
+[Unit]
+Description=RAIS image server
+Documentation=https://github.com/uoregon-libraries/rais-image-server/wiki
+After=network.target httpd.service
+Wants=httpd.service
 
-#### Override File
-Docker Compose is supposed to automatically use a `docker-compose.override.yml`
-file if present, but the CentOS 7 version does not appear to do this, thus still
-using the `-f  docker-compose.override.yml` option above.
+[Install]
+WantedBy=multi-user.target
 
-To simplify using Docker Compose commands, we recommend creating a local-only
-git branch where the override file is moved to `docker-compose.yml` and the
-extra option can be omitted
+[Service]
+Type=simple
+User=rais
+Group=rais
+
+ExecStart=/usr/local/share/rais/bin/rais-server
+
+KillSignal=SIGTERM
+# Don't want to see an automated SIGKILL ever
+SendSIGKILL=no
+
+SyslogIdentifier=rais
+SyslogLevel=warning
+
+Restart=always
+RestartSec=150
+
+UMask=007
+
+# Reasonable time for the server to start up/shut down
+TimeoutSec=60
+
+# Place temp files in a secure directory, not /tmp
+PrivateTmp=true
+```
+
+```bash
+systemctl enable rais
+systemctl start rais
+```
+
+If execution errors on the service start despite permissions and ownerships
+looking correct, the files may need SELinux context reset:
+
+```bash
+restorecon -R -F /usr/local/share/rais
+```
+
+### SELinux Port Permission
+
+```bash
+#semanage port -a -t http_port_t -p tcp 12415
+```
 
 ### Add Apache Config
 Copy [RAIS Apache config](/conf/apache/rais.conf) into the drop-in directory which will be included in your virtual host block
 
 ```bash
-cp /var/local/www/django/openoni/themes/nebraska/conf/apache/rais.conf /etc/httpd/local/vhosts/_nebnewspapers*.unl.edu/
+cp /var/local/www/django/openoni/themes/nebraska/conf/apache/rais.conf /etc/httpd/local/vhosts/_(ServerName).unl.edu/
 ```
-
